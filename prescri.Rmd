@@ -1,0 +1,99 @@
+---
+title: "Prescriptions' Functions & Cures"
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = FALSE) 
+```
+
+```{r libSets, echo=FALSE, message=FALSE}
+library("googlesheets4")
+library("tidyverse")
+library("tidygraph")
+library("ggraph")
+library("googlesheets4")
+library("knitr")
+#### this paragraph is the knit_hook created by yihui to reduce results lines
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+#### ^-- end of knit_hook
+library("table1")
+library("readxl")
+
+gs4_deauth()
+```
+
+```{r hb_nam, echo=F, message=F,comment=F, warnings=F}
+
+# ----------- Prescription Names (方剂名) ------------ 
+
+rw_fj_nam <- read_sheet("https://docs.google.com/spreadsheets/d/10cbNUzwSzDi16HPnpVaFIKqzaaAl8ZcyiUyoQuvM10w/edit?usp=sharing",
+                        sheet = "Sheet1")
+fj_nam <- rw_fj_nam[,c('Original_ChName','Corrected_ChName','PinYin','Reference')]
+```
+
+<br>
+
+#### **There are <span style="color:red;fond=bold"> **`r length(unique(fj_nam$Original_ChName))`** </span> Prescripts' info collected from different sources.** 
+#### **Since one prescription would have variations of components or dose, the real prescription lines are <span style="color:red;fond=bold"> **`r length(unique(fj_nam$Corrected_ChName))`** </span>.**
+
+- The Prescription Data Contains: Prescription Names(方剂名), Functions(功能), Cures(主治)
+
+#### **Example of the Names of Prescriptions as Collected & Cleaned:**
+```{r fj_nam_exampl, echo=F, message=F,comment=NA, warnings=F}
+fj_nam_ <- fj_nam[,c('Corrected_ChName','PinYin','Reference')]
+head(fj_nam_)
+```
+- **The Chinese Prescription Names are pending to translated into English.**
+
+--- 
+
+```{r fj_cmp, echo=F, message=F,comment=F, warnings=F}
+
+# ---------- Prescription Components (方剂组成) Part ----------
+
+rw_fj_cmp <- read_sheet("https://docs.google.com/spreadsheets/d/1f2dWSApp9JjCfK82lbZ1Kf-7ZAlV8f-ntP_6Dio_DPw/edit?usp=sharing",
+                        sheet = "Sheet1")
+fj_cmp <- select(rw_fj_cmp,Corrected_ChName,PinYin,Compo1:Compo86)
+```
+
+#### **Example of Prescription Components (方剂组成) from above collections:**
+```{r fj_cmp_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(fj_cmp[,c('Corrected_ChName','PinYin','Compo1','Compo2','Compo3','Compo4','Compo5')])
+```
+- **Components context & doses will be further cleaned.**
+
+---
+
+```{r fj_cur, echo=F, message=F,comment=F, warnings=F}
+
+# ---------- Prescription Treatments (方剂主治) Part ----------
+
+rw_fj_cur <- read_sheet("https://docs.google.com/spreadsheets/d/1K-m_s0Zb_NetpaSNESLDVm_qpWkN9QevBA_BxsGiEGI/edit?usp=sharing",
+                        sheet = "Sheet1")
+fj_cur <- select(rw_fj_cur,Corrected_ChName,PinYin,Cure1:Cure60)
+```
+
+#### **Example of Prescription Treatments (方剂主治) from above collections:**
+```{r fj_cur_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(fj_cur[,c('Corrected_ChName','PinYin','Cure1','Cure2','Cure3','Cure4','Cure5')])
+```
+- **Prescription Function & treatments will be further cleaned.**

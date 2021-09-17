@@ -1,0 +1,256 @@
+---
+title: "Herbs' Properties & Functions"
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = FALSE) 
+```
+
+```{r libSets, echo=FALSE, message=FALSE}
+library("googlesheets4")
+library("tidyverse")
+library("tidygraph")
+library("ggraph")
+library("googlesheets4")
+library("knitr")
+#### this paragraph is the knit_hook created by yihui to reduce results lines
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+#### ^-- end of knit_hook
+library("table1")
+library("readxl")
+
+gs4_deauth()
+```
+
+```{r hb_nam, echo=F, message=F,comment=F, warnings=F}
+
+# ----------- Herb Names (药名) ------------ 
+
+rw_hb_nam <- read_sheet("https://docs.google.com/spreadsheets/d/1rnQQsMh_PWMYAC9ukgtP-HTn5gkkceOQL6-XiHUVrKU/edit?usp=sharing",
+                        sheet = "Sheet1")
+hb_nam <- rw_hb_nam[,c('Corrected_ChName','PinYin','EngName1','LatinName')]
+```
+
+<br>
+
+#### **There are <span style="color:red;fond=bold"> **`r length(unique(hb_nam$Corrected_ChName))`** </span> herbs' info collected from different sources.** 
+- The Herb Data Contains: Herb Names(药名), Properties(药性), Tastes(药味), Attributes(归经), Functions(功能), Treatments(主治), & Toxities(毒性)
+
+<br>
+
+#### **Example of the Names of Herbs as Collected & Cleaned:**
+```{r hb_nam_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_nam)
+```
+
+- The English / Latin Names are still need to do more imputation & verification.
+
+--- 
+
+```{r hb_pro, echo=F, message=F,comment=F, warnings=F}
+
+# ---------- Herb Property (药性) Part ----------
+
+rw_hb_pro <- read_sheet("https://docs.google.com/spreadsheets/d/10fEh8pSETj3H5EI1Ud9Kqrc-jD4hqBr63Ytw2l7jtrw/edit?usp=sharing",
+                        sheet = "Sheet1")
+hb_pro <- select(rw_hb_pro,Corrected_ChName,PinYin,Property1:Property3)
+```
+
+#### **Example of Herb Properties (药性) from above collections:**
+```{r hb_pro_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_pro[,c('Corrected_ChName','PinYin','Property1')])
+```
+
+<br>
+
+#### **Frequencties of Properties:** (since there might be 1 herb has >1 properties, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
+
+<br>
+
+<center>
+```{r hb_pro_st,echo=F, message=F,comment=F, warnings=F}
+hb_pro_only <- select(hb_pro,Property1:Property3)
+pros <- data.frame(Property=na.omit(unlist(hb_pro_only)))
+pros$Property <- factor(pros$Property,levels=as.character(names(sort(table(pros$Property),decreasing=T))))
+table1::table1(~Property, data=pros, topclass="Rtable1-zebra")
+#above 2 lines sort output table by freq
+``` 
+</center>
+
+---
+
+```{r hb_tas, echo=F, message=F,comment=F, warnings=F}
+
+# -------------- Herb Taste (药味) --------------
+
+rw_hb_tas <- read_sheet("https://docs.google.com/spreadsheets/d/12OwcITTME3Rfa3V91mckTqmL7ItsLq5vmrGw_wT9dE8/edit?usp=sharing",
+                        sheet = "Sheet1")
+#summary(rw_hb_tas)
+hb_tas <- select(rw_hb_tas,Corrected_ChName,PinYin,Taste1:Taste5)
+```
+
+#### **Example of Herb Taste (药性) from above collections:**
+```{r hb_tas_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_tas[,c('Corrected_ChName','PinYin','Taste1')])
+```
+
+<br>
+
+#### **Frequencies of Tastes:** (since there might be 1 herb has >1 tastes, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
+
+<br>
+
+<center>
+```{r hb_tas_st,echo=F, message=F,comment=F, warnings=F}
+hb_tas_only <- select(hb_tas,Taste1:Taste5)
+tass <- data.frame(Taste=na.omit(unlist(hb_tas_only)))
+tass$Taste <- factor(tass$Taste,levels=as.character(names(sort(table(tass$Taste),decreasing=T))))
+table1::table1(~Taste, data=tass, topclass="Rtable1-zebra")
+```
+</center>
+
+---
+
+```{r hb_atr, echo=F, message=F,comment=F, warnings=F}
+
+# -------------- Herb Attribute (归经) --------------
+
+rw_hb_atr <- read_sheet("https://docs.google.com/spreadsheets/d/1SfcnlGZ33d5zsTxbrYqiWS9QBiGPtoVp-ayM4ZMwgOU/edit?usp=sharing",
+                        sheet = "Sheet1")
+#summary(rw_hb_atr)
+hb_atr <- select(rw_hb_atr,Corrected_ChName,PinYin,Attribute1:Attribute12)
+```
+
+#### **Example of Herb Attribute (归经) from above collections:**
+```{r hb_atr_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_atr[,c('Corrected_ChName','PinYin','Attribute1')])
+```
+
+<br>
+
+#### **Frequencies of Attributes:** (since there might be 1 herb has >1 Attributes, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
+
+<br>
+
+<center>
+```{r hb_atr_st,echo=F, message=F,comment=F, warnings=F}
+hb_atr_only <- select(hb_atr,Attribute1:Attribute12)
+atrs <- data.frame(Attribute=na.omit(unlist(hb_atr_only)))
+atrs$Attribute <- factor(atrs$Attribute,levels=as.character(names(sort(table(atrs$Attribute),decreasing=T))))
+table1::table1(~Attribute, data=atrs, topclass="Rtable1-zebra")
+```
+</center>
+
+---
+
+```{r hb_tox, echo=F, message=F,comment=F, warnings=F}
+# --- Herb Toxicity(毒性) --- #
+
+rw_hb_tox <- read_sheet("https://docs.google.com/spreadsheets/d/1B-yVSW6y5lZmQfihP5BxgkB4Y9KYZAcdec3PhhHzOPc/edit?usp=sharing",
+                        sheet = "Sheet1")
+#summary(rw_hb_tox)
+hb_tox <- select(rw_hb_tox,Corrected_ChName,PinYin,Toxicity)
+```
+
+#### **Example of Herb Toxicity (毒性) from above collections:**
+```{r hb_tox_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_tox[,c('Corrected_ChName','PinYin','Toxicity')])
+```
+
+<br>
+
+#### **Frequencies of Toxicities:** (since not all herbs had a clear toxicity record, so the overall # below is much less than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
+
+<br>
+
+<center>
+```{r hb_tox_st, echo=F, message=F,comment=F, warnings=F}
+hb_tox_only <- select(hb_tox,Toxicity)
+toxs <- data.frame(Toxicity=na.omit(unlist(hb_tox_only)))
+toxs$Toxicity <- factor(toxs$Toxicity,levels=as.character(names(sort(table(toxs$Toxicity),decreasing=T))))
+table1::table1(~Toxicity, data=toxs, topclass="Rtable1-zebra")
+```
+</center>
+
+---
+
+```{r hb_fun, echo=F, message=F,comment=F, warnings=F}
+
+# -------------- Herb Function (功能) --------------
+
+rw_hb_fun <- read_sheet("https://docs.google.com/spreadsheets/d/1OfXvaCWTp4qMcHHoMaUrD_3xaeWZc0uasuAQzf1ylYc/edit?usp=sharing",
+                        sheet = "Sheet1")
+#summary(rw_hb_fun)
+hb_fun <- select(rw_hb_fun,Corrected_ChName,PinYin,Function1:Function13)
+```
+
+#### **Example of Herb Function (功能) from above collections:**
+```{r hb_fun_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_fun[,c('Corrected_ChName','PinYin','Function1')])
+```
+
+<br>
+
+#### **Frequencies of Functions:** (since there might be 1 herb has >1 Functions, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
+
+<br>
+
+<center>
+```{r hb_fun_st, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+hb_fun_only <- select(hb_fun,Function1:Function13)
+funs <- data.frame(Function=na.omit(unlist(hb_fun_only)))
+funs$Function <- factor(funs$Function,levels=as.character(names(sort(table(funs$Function),decreasing=T))))
+table1::table1(~Function, output.lines=10, data=funs, topclass="Rtable1-zebra")
+```
+</center>
+
+---
+
+```{r hb_tre, echo=F, message=F,comment=F, warnings=F}
+
+# -------------- Herb Treatment (主治) --------------
+
+rw_hb_cur <- read_sheet("https://docs.google.com/spreadsheets/d/1Il7wflxanzNrX1_PUrVeHot5qrF_pK2BEPTTuCm2s5g/edit?usp=sharing",
+                        sheet = "Sheet1")
+#summary(rw_hb_fun)
+hb_cur <- select(rw_hb_cur,Corrected_ChName,PinYin,Cure1:Cure40)
+```
+
+#### **Example of Herb Treatment (主治) from above collections:**
+```{r hb_cur_exampl, echo=F, message=F,comment=NA, warnings=F}
+head(hb_cur[,c('Corrected_ChName','PinYin','Cure1')])
+```
+
+<br>
+
+#### **Frequencies of Treatments:** (since there might be 1 herb has >1 Treatments, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
+
+<br>
+
+<center>
+```{r hb_cur_st, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+hb_cur_only <- select(hb_cur,Cure1:Cure40)
+curs <- data.frame(Treatment=na.omit(unlist(hb_cur_only)))
+curs$Treatment <- factor(curs$Treatment,levels=as.character(names(sort(table(curs$Treatment),decreasing=T))))
+table1::table1(~Treatment, output.lines=10, data=curs, topclass="Rtable1-zebra")
+```
+</center>

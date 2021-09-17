@@ -1,0 +1,25 @@
+---
+title: "DigitHerb"
+---
+
+## **Welcome to the DigitHerb ~**
+
+- **DigitHerb aims to explore the traditional Chinese Herbal Medicines(CHM) by modern data techs ~**
+
+- **Looking forward to hear your feedbacks and comments ~ (email to: digitherb@gmail.com)**
+
+- **Looking for supports on expanding this idea and find the useful ingredients from thousands years' herb/prescription records ~**
+
+### **On-growing[ ] / Completed[x] Projects:**
+
+- [x] Collect Herbs' Informations
+- [x] Collect Herbal Prescriptions' Informations
+- [x] Collect Herbs' Chemical Components 
+- [ ] Review & Clean the Herbs' informations (1st round)
+  - [x] Create unique PinYin spelling as indexed variable
+  - [ ] Clean & Impute herbs' English & Latin names
+  - [x] Clean Herbs' Property, Taste, Attribute, Function, Cures, Toxicity
+- [ ] Review & Clean the Herbal Prescriptions' information (1st round)
+  - [x] Clean Prescription Functions
+  - [x] Clean Prescription Cures
+

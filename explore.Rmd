@@ -1,0 +1,84 @@
+---
+title: "Explore the Herb/Prescription's Functions & Cures"
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = FALSE) 
+```
+
+```{r libSets, echo=FALSE, message=FALSE}
+library("googlesheets4")
+library("tidyverse")
+library("tidygraph")
+library("ggraph")
+library("googlesheets4")
+library("knitr")
+#### this paragraph is the knit_hook created by yihui to reduce results lines
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+#### ^-- end of knit_hook
+library("table1")
+library("readxl")    #<- this will readin excel files
+library("gridExtra") #<- this will output data in a grid format
+gs4_deauth()
+```
+
+---
+
+#### **An Exploration on Chinese Herb & Prescription Treating 瘟病 (WenBing, the Plague & Contagious Disease defined by Chinese Herbal Medicine). Will use 'WenBing' to represent the disease we are interested**
+
+<br>
+
+#### **Explore in Herbs:**
+
+- **There are 8 herbs' treatments/cures contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
+  - **The 8 herbs & their cures are listed below:**
+<center>
+```{r hb_wen, , echo=F, message=F,comment=F, warnings=F}
+hb_wen <- read_excel("C:/Users/Sean/Downloads/hb_tre_wen_cue.xlsx")
+grid.table(hb_wen)
+```
+</center>
+
+#### **Explore in Prescriptions:**
+
+- **There are <span style="color:red;fond=bold">51</span> prescriptions' name contain the Chinese character '瘟';**
+
+  - **After briefly reviewing above prescriptions' functions & cures, the following name-selected prescriptions could be related to treating WenBing:**
+
+  '白避瘟散', '避瘟丹', '逼瘟丹', '避瘟明目清上散', '避瘟散', '避瘟杀鬼丸', '避瘟丸', '除秽靖瘟丹', '除瘟化毒散', 
+  '除瘟化毒汤', '除瘟化痰汤', '除瘟救苦丹', '除瘟散', '大辟瘟丹', '防毒气防瘟疫灵药', '解毒辟瘟丹', '解热辟瘟丹', 
+  '解瘟丹', '救急避瘟散', '灵宝辟瘟丹', '辟瘟丹', '辟瘟集祥香', '辟瘟散', '辟瘟汤', '辟瘟丸', '辟瘟线香', '辟邪避瘟丹', 
+  '清瘟败毒饮', '清瘟解毒丸'
+  
+- **There are <span style="color:red;fond=bold">376</span> prescriptions selected by requiring the Cures/Treatments contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
+
+  - After briefly reviewing the functions & cures, a few prescriptions are eliminated, and a total <span style="color:red;fond=bold">280</span> prescriptions left for higher potential related to they plague & contagious viral diseases we'd like to be interested
+  - By checking the components of above prescriptions, top frequently used herbs are as below:
+
+<center>
+```{r fj_wen, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+
+fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
+fj_wen$Compo <- factor(fj_wen$Compo,levels=as.character(names(sort(table(fj_wen$Compo),decreasing=T))))
+table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
+```
+</center>

@@ -1,0 +1,25 @@
+
+home: "DigitHerb"
+
+navbar:
+  title: "DigitHerb"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Herbal Medicine Theories"
+      href: theos.html
+    - text: "Herbs"
+      href: herbs.html
+    - text: "Prescriptions"
+      href: prescri.html
+    - text: "Explore"
+      href: explore.html
+
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    #include:
+     # after_body: footer.html
+
+output_dir: "."

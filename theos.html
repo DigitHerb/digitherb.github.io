@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Chinese Herbal Medicine Theories</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">DigitHerb</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="theos.html">Herbal Medicine Theories</a>
+</li>
+<li>
+  <a href="herbs.html">Herbs</a>
+</li>
+<li>
+  <a href="prescri.html">Prescriptions</a>
+</li>
+<li>
+  <a href="explore.html">Explore</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Chinese Herbal Medicine Theories</h1>
+
+</div>
+
+
+<div id="fundamental-components-logics" class="section level1">
+<h1>Fundamental Components &amp; Logics</h1>
+<div id="yin-yang-five-elements-阴阳-五行" class="section level4">
+<h4>Yin-Yang &amp; Five Elements 阴阳 &amp; 五行</h4>
+<ul>
+<li>Yin-Yang:
+<ul>
+<li>Negative (阴):</li>
+<li>Positive (阳):</li>
+</ul></li>
+<li>Five Elements:
+<ul>
+<li>Metal (金):</li>
+<li>Wood (木):</li>
+<li>Earth (土):</li>
+<li>Water (水):</li>
+<li>Fire (火):</li>
+</ul></li>
+</ul>
+</div>
+<div id="table-of-matching-herbal-medicine-concepts-with-five-elements" class="section level4">
+<h4>Table of Matching Herbal Medicine Concepts with Five Elements</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="center">五行</th>
+<th align="center">金</th>
+<th align="center">木</th>
+<th align="center">土</th>
+<th align="center">水</th>
+<th align="center">火</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">相生</td>
+<td align="center">水</td>
+<td align="center">火</td>
+<td align="center">金</td>
+<td align="center">木</td>
+<td align="center">土</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">相克</td>
+<td align="center">木</td>
+<td align="center">土</td>
+<td align="center">水</td>
+<td align="center">火</td>
+<td align="center">金</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">五脏</td>
+<td align="center">肺</td>
+<td align="center">肝</td>
+<td align="center">脾</td>
+<td align="center">肾</td>
+<td align="center">心</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">六腑</td>
+<td align="center">大肠</td>
+<td align="center">胆</td>
+<td align="center">胃</td>
+<td align="center">膀胱</td>
+<td align="center">小肠</td>
+<td align="center">三焦不对任一五行</td>
+</tr>
+<tr class="odd">
+<td align="center">奇恒之腑</td>
+<td align="center">脑</td>
+<td align="center">髓</td>
+<td align="center">女子胞</td>
+<td align="center">脉</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">药味</td>
+<td align="center">辛</td>
+<td align="center">酸(涩)</td>
+<td align="center">甘</td>
+<td align="center">咸</td>
+<td align="center">苦</td>
+<td align="center">平不对任一五行</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="five-solid-organs-五脏" class="section level4">
+<h4>Five Solid Organs 五脏</h4>
+<ul>
+<li>心肝脾肺肾</li>
+</ul>
+</div>
+<div id="six-hollow-organs-六腑" class="section level4">
+<h4>Six Hollow Organs 六腑</h4>
+<ul>
+<li>大肠 胆 膀胱 小肠 胃 三焦</li>
+</ul>
+</div>
+<div id="six-channel-terms-六经" class="section level4">
+<h4>Six Channel Terms 六经</h4>
+<ul>
+<li>太阳 阳明 少阳 太阴 少阴 厥阴</li>
+</ul>
+</div>
+<div id="six-disease-elements-六邪" class="section level4">
+<h4>Six Disease Elements 六邪</h4>
+<ul>
+<li>风寒暑湿燥火</li>
+</ul>
+</div>
+<div id="seven-emotions-七情" class="section level4">
+<h4>Seven Emotions 七情</h4>
+<ul>
+<li>喜怒忧思悲恐惊</li>
+</ul>
+</div>
+<div id="eight-routes-八脉" class="section level4">
+<h4>Eight Routes 八脉</h4>
+<ul>
+<li>督脉 任脉 冲脉 带脉 阴维脉 阳维脉 阴跷脉 阳跷脉</li>
+</ul>
+</div>
+<div id="twelve-formal-channels" class="section level4">
+<h4>Twelve Formal Channels</h4>
+<ul>
+<li>手太阴-肺</li>
+<li>手厥阴-心包</li>
+<li>手少阴-心</li>
+<li>手阳明-大肠</li>
+<li>手少阳-三焦</li>
+<li>手太阳-小肠</li>
+<li>足太阴-脾</li>
+<li>足厥阴-肝</li>
+<li>足少阴-肾</li>
+<li>足阳明-胃</li>
+<li>足少阳-胆</li>
+<li>足太阳-膀胱</li>
+</ul>
+</div>
+</div>
+<div id="terms-in-herbs" class="section level1">
+<h1>Terms in Herbs</h1>
+<div id="herb-property-taste-attributes" class="section level4">
+<h4>Herb Property, Taste &amp; Attributes</h4>
+<ul>
+<li>Herb Property(药性)
+<ul>
+<li>寒热温凉</li>
+</ul></li>
+<li>Herb Taste(药味)
+<ul>
+<li>酸苦甘辛咸</li>
+</ul></li>
+<li>Attributes(归经)
+<ul>
+<li>心肝脾肺肾</li>
+</ul></li>
+</ul>
+</div>
+<div id="seven-relations-among-herbs-七情和合" class="section level4">
+<h4>Seven Relations Among Herbs 七情和合</h4>
+<ul>
+<li>单行：一味药独立发挥左用。如独参汤、独圣丸(五灵脂)、首乌片</li>
+<li>相须：两种左用相似的药配伍，有相互协同的左用。如大黄&amp;芒硝，乳香&amp;没药，当归&amp;白芍</li>
+<li>相使：两种左用不同的药配伍，可相互促进。如黄芪&amp;茯苓，白术&amp;防风，巴戟天&amp;覆盆子</li>
+<li>相畏：一种药能抑制或减轻另一种药的烈性。如，桔梗畏白芨，远志畏真珠，丁香畏郁金</li>
+<li>相杀：一种药能减轻或消除另一种药的毒性。如，大黄与附子，甘遂与芍药、石膏与粳米</li>
+<li>相恶：两种药合用会降低或丧失药效，属配伍禁忌。如，元参恶干姜，巴戟恶雷丸，狗脊恶败酱</li>
+<li>相反：两种药何用能产生毒副作用，属配伍禁忌。如，乌头反半夏，大戟反芫花，细辛反藜芦</li>
+</ul>
+</div>
+</div>
+<div id="terms-in-pulses-脉象" class="section level1">
+<h1>Terms in Pulses 脉象</h1>
+<div id="pulse-properties-patternsquoted-from-baidu-baike" class="section level4">
+<h4>Pulse Properties &amp; Patterns:(quoted from <a href="https://baike.baidu.com/item/%E8%84%89%E8%B1%A1/3029072">Baidu Baike</a>)</h4>
+<div id="normal-pulse-is-like-一次呼吸跳4次寸关尺三部有脉脉不浮不沉和缓有力尺脉沉取有力" class="section level6">
+<h6>(Normal Pulse is Like: 一次呼吸跳4次；寸关尺三部有脉，脉不浮不沉，和缓有力，尺脉沉取有力)</h6>
+<ul>
+<li><p>位:脉搏跳动显现的部位和长度</p>
+<ul>
+<li>浮:脉位表浅，轻按可得，重按则减。 主病：表证由于外感病邪停留于表时，卫气抗邪，脉气鼓动于外，故脉位浅显。 浮而有力为表实；浮而无力为表虚。 内伤久病因阴血衰少，阳气不足，虚阳外浮，脉浮大无力为危证。</li>
+<li>沉:脉位深沉，轻按不得，重按乃得。 主病：里证。 有力为里实，无力为里虚。 邪郁于里，气血阻滞阳气不畅，脉沉有力为里实；脏腑虚弱，阳虚气陷，脉气鼓动无力，则脉沉无力。</li>
+<li>长:脉搏超过寸、关、尺三部</li>
+<li>短:脉动不及寸、尺者</li>
+</ul></li>
+<li><p>数:脉搏跳动的至数和节律</p>
+<ul>
+<li>数:一(呼)息5至以上（每分钟脉搏在90次以上），脉搏急促。 主病：热证。 有力为实热，无力为虚热。 外感热病初起，脏腑热盛，邪热鼓动，血行加速，脉快有力为实热；阴虚火旺，津血不足，虚热内生，脉快而无力为虚热。</li>
+<li>迟:一息不满4至以下（每分钟脉搏在60次以下），脉搏缓慢。 主病：寒证。 有力为实寒，无力为虚寒。 寒则凝滞，气血运行缓慢，脉迟而有力为实寒证；阳气虚损，无力运行气血，脉迟而无力，为虚寒证。</li>
+<li>促:有间歇，脉来急数，时而一止，止无定数，即脉搏快有不规则的间歇。 为阳盛热实，或气血痰食停滞，见于气血痰食瘀滞，肿痛，诸实热证。脉细促而无力，多为虚脱之象。</li>
+<li>结:有间歇，脉来缓慢，时见一止，止无定数，即脉搏慢而不规则的间歇。 为阴盛寒积或气血瘀滞，见于气滞血瘀，痰结食积，症积、疝痛等。 结而无力为气血虚衰，见于虚劳久病及各类心脏病所致的心律不齐。</li>
+<li>代:有间歇，脉来歇止，止有定数，不能自还，良久复动，即有规律的间歇，脉搏动到一定至数歇止一次，歇止时间较长。 为脏气衰微之征象。 可见于心律失常的二联律，三联律等。</li>
+<li><a href="https://baike.baidu.com/item/%E6%95%A3%E8%84%89/7480897">散</a>:脉浮散无根，轻按有分散零乱之感，中按渐空，重按则无。 主元气离散，胃气衰败，气血消亡，精气将绝，见于病情垂危阶段。</li>
+<li>涩:脉率快慢不匀，三五不调</li>
+</ul></li>
+<li><p>形:脉搏跳动宽度等形态</p>
+<ul>
+<li>洪:脉管充盈，脉搏幅度较大</li>
+<li>细:脉管充盈度较小，搏动幅度较小</li>
+<li>弦:脉管弹性差，欠柔和</li>
+<li>濡:脉体柔软无力</li>
+<li>缓:脉体柔软无力</li>
+</ul></li>
+<li><p>势:脉搏应指的强弱、流畅等趋势。受脉动轴向和径向力度，心脏&amp;阻力影响的流利度，血管弹性&amp;张力影响的紧张度等因素的影响</p>
+<ul>
+<li>实:应指有力</li>
+<li>虚:应指无力</li>
+<li>滑:通畅状态好，脉来流利圆滑</li>
+<li>涩:通畅状态差，脉来艰涩不畅</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
