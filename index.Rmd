@@ -8,18 +8,29 @@ title: "DigitHerb"
 
 - **Looking forward to hear your feedbacks and comments ~ (email to: digitherb@gmail.com)**
 
+- **I'm a biostatistician w/ 10 years of working experience in academy on drug safety/efficiency/efficacy**
+
+  - **A bit more of me @ https://www.linkedin.com/in/shuoyang81/**
+
 - **Looking for supports on expanding this idea and find the useful ingredients from thousands years' herb/prescription records ~**
+
+<br>
 
 ### **On-growing[ ] / Completed[x] Projects:**
 
-- [x] Collect Herbs' Informations
-- [x] Collect Herbal Prescriptions' Informations
-- [x] Collect Herbs' Chemical Components 
-- [ ] Review & Clean the Herbs' informations (1st round)
-  - [x] Create unique PinYin spelling as indexed variable
-  - [ ] Clean & Impute herbs' English & Latin names
-  - [x] Clean Herbs' Property, Taste, Attribute, Function, Cures, Toxicity
-- [ ] Review & Clean the Herbal Prescriptions' information (1st round)
-  - [x] Clean Prescription Functions
-  - [x] Clean Prescription Cures
+- [x] **Collect Herbs' Informations**
+- [x] **Collect Herbal Prescriptions' Informations**
+- [x] **Collect Herbs' Chemical Components**
 
+- [ ] **Review & Clean the Herbs' informations (1st round)**
+  - [x] **Create unique PinYin spellings as the indexed variable**
+  - [ ] **Clean & Impute herbs' English & Latin names**
+  - [x] **Clean Herbs' Property, Taste, Attribute, Function, Cures, Toxicity**
+
+- [ ] **Review & Clean the Herbal Prescriptions' information (1st round)**
+  - [x] **Create unique PinYin spellings as the indexed variable**
+  - [x] **Clean Prescription Functions & Cures**
+  - [ ] **Separate the prescription's functions & cures**
+
+- [ ] **Collect, Clean & Visualize CHM Theories.**
+- [ ] **Build Mathematical/Statistical Models to Prescriptions Data.**

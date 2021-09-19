@@ -2,57 +2,61 @@
 title: "Chinese Herbal Medicine Theories"
 ---
 
-# Fundamental Components & Logics
+<br>
 
-#### Yin-Yang & Five Elements 阴阳 & 五行
+## **Fundamental Components & Logics**
 
-- Yin-Yang: 
+<br>
+
+#### **Yin-Yang & Five Elements 阴阳 & 五行**
+
+- **Yin-Yang:**
   - Negative (阴):
   - Positive (阳):
-- Five Elements:
+- **Five Elements:**
   - Metal (金): 
   - Wood (木):
   - Earth (土):
   - Water (水):
   - Fire (火):
 
-#### Table of Matching Herbal Medicine Concepts with Five Elements
+#### **Table of Matching Herbal Medicine Concepts with Five Elements**
 
-| 五行 | 金 | 木 | 土 | 水 | 火 | 注释 |
+| **五行** | **金(Metal)** | **木(Wood)** | **土(Earth)** | **水(Water)** | **火(Fire)** | **注释** |
 |:----:|:--:|:--:|:--:|:--:|:--:|:----:|
-| 相生 | 水 | 火 | 金 | 木 | 土 | |
-| 相克 | 木 | 土 | 水 | 火 | 金 | |
-| 五脏 | 肺 | 肝 | 脾 | 肾 | 心 | |
-| 六腑 | 大肠 | 胆 | 胃 | 膀胱 | 小肠 | 三焦不对任一五行|
-| 奇恒之腑 | 脑 | 髓 | 女子胞 | 脉 | |
-| 药味 | 辛 | 酸(涩) | 甘 | 咸 | 苦 | 平不对任一五行 |
+| **相生** | 水(Water) | 火(Fire) | 金(Metal) | 木(Wood) | 土(Earth) | |
+| **相克** | 木 | 土 | 水 | 火 | 金 | |
+| **五脏** | 肺 | 肝 | 脾 | 肾 | 心 | |
+| **六腑** | 大肠 | 胆 | 胃 | 膀胱 | 小肠 | 三焦不对任一五行|
+| **奇恒之腑** | 脑 | 髓 | 女子胞 | 脉 | |
+| **药味** | 辛 | 酸(涩) | 甘 | 咸 | 苦 | 平不对任一五行 |
 
 
-#### Five Solid Organs 五脏
+#### **Five Solid Organs 五脏**
 
 - 心肝脾肺肾
 
-#### Six Hollow Organs 六腑
+#### **Six Hollow Organs 六腑**
 
 - 大肠 胆 膀胱 小肠 胃 三焦
 
-#### Six Channel Terms 六经
+#### **Six Channel Terms 六经**
 
 - 太阳 阳明 少阳 太阴 少阴 厥阴 
 
-#### Six Disease Elements 六邪
+#### **Six Disease Elements 六邪**
 
 - 风寒暑湿燥火
 
-#### Seven Emotions 七情
+#### **Seven Emotions 七情**
 
 - 喜怒忧思悲恐惊
 
-#### Eight Routes 八脉
+#### **Eight Routes 八脉**
 
 - 督脉 任脉 冲脉 带脉 阴维脉 阳维脉 阴跷脉 阳跷脉
 
-#### Twelve Formal Channels
+#### **Twelve Formal Channels**
 
 - 手太阴-肺
 - 手厥阴-心包
@@ -67,9 +71,13 @@ title: "Chinese Herbal Medicine Theories"
 - 足少阳-胆
 - 足太阳-膀胱
 
-# Terms in Herbs
+---
 
-#### Herb Property, Taste & Attributes
+## **Terms in Herbs**
+
+<br>
+
+#### **Herb Property, Taste & Attributes**
 
 - Herb Property(药性)
   - 寒热温凉
@@ -78,7 +86,7 @@ title: "Chinese Herbal Medicine Theories"
 - Attributes(归经)
   - 心肝脾肺肾
   
-#### Seven Relations Among Herbs 七情和合
+#### **Seven Relations Among Herbs 七情和合**
 
 - 单行：一味药独立发挥左用。如独参汤、独圣丸(五灵脂)、首乌片
 - 相须：两种左用相似的药配伍，有相互协同的左用。如大黄&芒硝，乳香&没药，当归&白芍
@@ -88,11 +96,15 @@ title: "Chinese Herbal Medicine Theories"
 - 相恶：两种药合用会降低或丧失药效，属配伍禁忌。如，元参恶干姜，巴戟恶雷丸，狗脊恶败酱
 - 相反：两种药何用能产生毒副作用，属配伍禁忌。如，乌头反半夏，大戟反芫花，细辛反藜芦
 
-# Terms in Pulses 脉象
+---
 
-#### Pulse Properties & Patterns:(quoted from [Baidu Baike](https://baike.baidu.com/item/%E8%84%89%E8%B1%A1/3029072))
+## **Terms in Pulses 脉象**
 
-###### (Normal Pulse is Like: 一次呼吸跳4次；寸关尺三部有脉，脉不浮不沉，和缓有力，尺脉沉取有力)
+<br>
+
+#### **Pulse Properties & Patterns:(quoted from [Baidu Baike](https://baike.baidu.com/item/%E8%84%89%E8%B1%A1/3029072))**
+
+###### **(Normal Pulse is Like: 一次呼吸跳4次；寸关尺三部有脉，脉不浮不沉，和缓有力，尺脉沉取有力)**
 
 - 位:脉搏跳动显现的部位和长度
 

@@ -39,6 +39,11 @@ library("table1")
 library("readxl")    #<- this will readin excel files
 library("gridExtra") #<- this will output data in a grid format
 gs4_deauth()
+
+filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
+readIn.func <- function(fileName){
+  read_excel(paste0(filePath,fileName,".xlsx"))
+}
 ```
 
 ---
@@ -53,7 +58,8 @@ gs4_deauth()
   - **The 8 herbs & their cures are listed below:**
 <center>
 ```{r hb_wen, , echo=F, message=F,comment=F, warnings=F}
-hb_wen <- read_excel("C:/Users/Sean/Downloads/hb_tre_wen_cue.xlsx")
+#hb_wen <- read_excel("C:/Users/Sean/Downloads/hb_tre_wen_cue.xlsx")
+hb_wen <- readIn.func(fileName="hb_tre_wen_cue")
 grid.table(hb_wen)
 ```
 </center>
@@ -77,7 +83,8 @@ grid.table(hb_wen)
 <center>
 ```{r fj_wen, output.lines=10, echo=F, message=F,comment=F, warnings=F}
 
-fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
+#fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
+fj_wen <- readIn.func(fileName="fj_wen_cmp_cl")
 fj_wen$Compo <- factor(fj_wen$Compo,levels=as.character(names(sort(table(fj_wen$Compo),decreasing=T))))
 table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
 ```

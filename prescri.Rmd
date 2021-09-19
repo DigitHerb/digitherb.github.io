@@ -39,14 +39,19 @@ library("table1")
 library("readxl")
 
 gs4_deauth()
+filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
+readIn.func <- function(fileName){
+  read_excel(paste0(filePath,fileName,".xlsx"))
+}
 ```
 
 ```{r hb_nam, echo=F, message=F,comment=F, warnings=F}
 
 # ----------- Prescription Names (方剂名) ------------ 
 
-rw_fj_nam <- read_sheet("https://docs.google.com/spreadsheets/d/10cbNUzwSzDi16HPnpVaFIKqzaaAl8ZcyiUyoQuvM10w/edit?usp=sharing",
-                        sheet = "Sheet1")
+#rw_fj_nam <- read_sheet("https://docs.google.com/spreadsheets/d/10cbNUzwSzDi16HPnpVaFIKqzaaAl8ZcyiUyoQuvM10w/edit?usp=sharing",
+#                        sheet = "Sheet1")
+rw_fj_nam <-readIn.func(fileName = "FangJiNames_v210822")
 fj_nam <- rw_fj_nam[,c('Original_ChName','Corrected_ChName','PinYin','Reference')]
 ```
 
@@ -70,8 +75,9 @@ head(fj_nam_)
 
 # ---------- Prescription Components (方剂组成) Part ----------
 
-rw_fj_cmp <- read_sheet("https://docs.google.com/spreadsheets/d/1f2dWSApp9JjCfK82lbZ1Kf-7ZAlV8f-ntP_6Dio_DPw/edit?usp=sharing",
-                        sheet = "Sheet1")
+#rw_fj_cmp <- read_sheet("https://docs.google.com/spreadsheets/d/1f2dWSApp9JjCfK82lbZ1Kf-7ZAlV8f-ntP_6Dio_DPw/edit?usp=sharing",
+#                        sheet = "Sheet1")
+rw_fj_cmp <- readIn.func(fileName = "FangJiComponents_v210822")
 fj_cmp <- select(rw_fj_cmp,Corrected_ChName,PinYin,Compo1:Compo86)
 ```
 
@@ -87,8 +93,9 @@ head(fj_cmp[,c('Corrected_ChName','PinYin','Compo1','Compo2','Compo3','Compo4','
 
 # ---------- Prescription Treatments (方剂主治) Part ----------
 
-rw_fj_cur <- read_sheet("https://docs.google.com/spreadsheets/d/1K-m_s0Zb_NetpaSNESLDVm_qpWkN9QevBA_BxsGiEGI/edit?usp=sharing",
-                        sheet = "Sheet1")
+#rw_fj_cur <- read_sheet("https://docs.google.com/spreadsheets/d/1K-m_s0Zb_NetpaSNESLDVm_qpWkN9QevBA_BxsGiEGI/edit?usp=sharing",
+#                        sheet = "Sheet1")
+rw_fj_cur <- readIn.func(fileName = "FangJiCures_v210822")
 fj_cur <- select(rw_fj_cur,Corrected_ChName,PinYin,Cure1:Cure60)
 ```
 
