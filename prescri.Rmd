@@ -37,6 +37,7 @@ knit_hooks$set(output = function(x, options) {
 #### ^-- end of knit_hook
 library("table1")
 library("readxl")
+library("wordcloud")
 
 gs4_deauth()
 filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
@@ -58,9 +59,9 @@ fj_nam <- rw_fj_nam[,c('Original_ChName','Corrected_ChName','PinYin','Reference'
 <br>
 
 #### **There are <span style="color:red;fond=bold"> **`r length(unique(fj_nam$Original_ChName))`** </span> Prescripts' info collected from different sources.** 
-#### **Since one prescription would have variations of components or dose, the real prescription lines are <span style="color:red;fond=bold"> **`r length(unique(fj_nam$Corrected_ChName))`** </span>.**
+#### **Since one prescription could have more than 1 variations of components or doses, the real prescription lines are <span style="color:red;fond=bold"> **`r length(unique(fj_nam$Corrected_ChName))`** </span>.**
 
-- The Prescription Data Contains: Prescription Names(方剂名), Functions(功能), Cures(主治)
+- The Prescription Data Contains: Prescription Names(方剂名), Components(方剂组成), Functions(方剂功能) & Cures(方剂主治)
 
 #### **Example of the Names of Prescriptions as Collected & Cleaned:**
 ```{r fj_nam_exampl, echo=F, message=F,comment=NA, warnings=F}
@@ -81,11 +82,28 @@ rw_fj_cmp <- readIn.func(fileName = "FangJiComponents_v210822")
 fj_cmp <- select(rw_fj_cmp,Corrected_ChName,PinYin,Compo1:Compo86)
 ```
 
-#### **Example of Prescription Components (方剂组成) from above collections:**
+#### **Example of Prescription Components (方剂组成) from above collections:(there are 86 component columns, below only show the first 5 of them)**
 ```{r fj_cmp_exampl, echo=F, message=F,comment=NA, warnings=F}
 head(fj_cmp[,c('Corrected_ChName','PinYin','Compo1','Compo2','Compo3','Compo4','Compo5')])
 ```
 - **Components context & doses will be further cleaned.**
+
+#### **A Wordcloud chart of the first 200 prescriptions' herb components is shown below:**
+
+<center>
+```{r fj_cmp_st, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+fj_cmp_only <- select(fj_cmp,Compo1:Compo86)
+cmps <- data.frame(Component=na.omit(unlist(fj_cmp_only)))
+cmps$Component2 <- sub("[0-9+()].*","",cmps$Component) #<--substr anything before a delimiter (if need after, use .* before the [])
+cmps2 <- cmps[!(cmps$Component2=="#VALUE!"),]
+cmps2$Component2 <- factor(cmps2$Component2,levels=as.character(names(sort(table(cmps2$Component2),decreasing=T))))
+#table1::table1(~Function, output.lines=10, data=funs, topclass="Rtable1-zebra")
+cmp_freq <- as.data.frame(table(cmps2$Component2))
+wordcloud(words=cmp_freq$Var1,freq=cmp_freq$Freq,min.freq=1,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
 
 ---
 
@@ -99,8 +117,25 @@ rw_fj_cur <- readIn.func(fileName = "FangJiCures_v210822")
 fj_cur <- select(rw_fj_cur,Corrected_ChName,PinYin,Cure1:Cure60)
 ```
 
-#### **Example of Prescription Treatments (方剂主治) from above collections:**
+#### **Example of Prescription Treatments (方剂主治) from above collections:(there are 60 Cure columns, below only show the first 5 of them)**
 ```{r fj_cur_exampl, echo=F, message=F,comment=NA, warnings=F}
 head(fj_cur[,c('Corrected_ChName','PinYin','Cure1','Cure2','Cure3','Cure4','Cure5')])
 ```
 - **Prescription Function & treatments will be further cleaned.**
+
+#### **A Wordcloud chart of the first 200 prescriptions' treatments is shown below:**
+
+<center>
+```{r fj_cur_st, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+fj_cur_only <- select(fj_cur,Cure1:Cure60)
+fj_curs <- data.frame(Treatment=na.omit(unlist(fj_cur_only)))
+fj_curs$Treatment2 <- sub("[0-9+()].*","",fj_curs$Treatment) #<--substr anything before a delimiter (if need after, use .* before the [])
+fj_curs2 <- fj_curs[!(fj_curs$Treatment2=="#VALUE!"),]
+fj_curs2$Treatment2 <- factor(fj_curs2$Treatment2,levels=as.character(names(sort(table(fj_curs2$Treatment2),decreasing=T))))
+#table1::table1(~Function, output.lines=10, data=funs, topclass="Rtable1-zebra")
+cur_freq <- as.data.frame(table(fj_curs2$Treatment2))
+wordcloud(words=cur_freq$Var1,freq=cmp_freq$Freq,min.freq=1,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>

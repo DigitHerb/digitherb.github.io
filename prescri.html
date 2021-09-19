@@ -277,10 +277,10 @@ $(document).ready(function () {
 <div id="there-are-24780-prescripts-info-collected-from-different-sources." class="section level4">
 <h4><strong>There are <span style="color:red;fond=bold"> <strong>24780</strong> </span> Prescripts’ info collected from different sources.</strong></h4>
 </div>
-<div id="since-one-prescription-would-have-variations-of-components-or-dose-the-real-prescription-lines-are-51974-." class="section level4">
-<h4><strong>Since one prescription would have variations of components or dose, the real prescription lines are <span style="color:red;fond=bold"> <strong>51974</strong> </span>.</strong></h4>
+<div id="since-one-prescription-could-have-more-than-1-variations-of-components-or-doses-the-real-prescription-lines-are-51974-." class="section level4">
+<h4><strong>Since one prescription could have more than 1 variations of components or doses, the real prescription lines are <span style="color:red;fond=bold"> <strong>51974</strong> </span>.</strong></h4>
 <ul>
-<li>The Prescription Data Contains: Prescription Names(方剂名), Functions(功能), Cures(主治)</li>
+<li>The Prescription Data Contains: Prescription Names(方剂名), Components(方剂组成), Functions(方剂功能) &amp; Cures(方剂主治)</li>
 </ul>
 </div>
 <div id="example-of-the-names-of-prescriptions-as-collected-cleaned" class="section level4">
@@ -299,8 +299,8 @@ $(document).ready(function () {
 </ul>
 <hr />
 </div>
-<div id="example-of-prescription-components-方剂组成-from-above-collections" class="section level4">
-<h4><strong>Example of Prescription Components (方剂组成) from above collections:</strong></h4>
+<div id="example-of-prescription-components-方剂组成-from-above-collectionsthere-are-86-component-columns-below-only-show-the-first-5-of-them" class="section level4">
+<h4><strong>Example of Prescription Components (方剂组成) from above collections:(there are 86 component columns, below only show the first 5 of them)</strong></h4>
 <pre><code># A tibble: 6 x 7
   Corrected_ChName PinYin       Compo1      Compo2     Compo3   Compo4   Compo5 
   &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  
@@ -313,10 +313,16 @@ $(document).ready(function () {
 <ul>
 <li><strong>Components context &amp; doses will be further cleaned.</strong></li>
 </ul>
+</div>
+<div id="a-wordcloud-chart-of-the-first-200-prescriptions-herb-components-is-shown-below" class="section level4">
+<h4><strong>A Wordcloud chart of the first 200 prescriptions’ herb components is shown below:</strong></h4>
+<center>
+<img src="prescri_files/figure-html/fj_cmp_st-1.png" width="672" />
+</center>
 <hr />
 </div>
-<div id="example-of-prescription-treatments-方剂主治-from-above-collections" class="section level4">
-<h4><strong>Example of Prescription Treatments (方剂主治) from above collections:</strong></h4>
+<div id="example-of-prescription-treatments-方剂主治-from-above-collectionsthere-are-60-cure-columns-below-only-show-the-first-5-of-them" class="section level4">
+<h4><strong>Example of Prescription Treatments (方剂主治) from above collections:(there are 60 Cure columns, below only show the first 5 of them)</strong></h4>
 <pre><code># A tibble: 6 x 7
   Corrected_ChName PinYin       Cure1    Cure2          Cure3        Cure4 Cure5
   &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
@@ -329,6 +335,12 @@ $(document).ready(function () {
 <ul>
 <li><strong>Prescription Function &amp; treatments will be further cleaned.</strong></li>
 </ul>
+</div>
+<div id="a-wordcloud-chart-of-the-first-200-prescriptions-treatments-is-shown-below" class="section level4">
+<h4><strong>A Wordcloud chart of the first 200 prescriptions’ treatments is shown below:</strong></h4>
+<center>
+<img src="prescri_files/figure-html/fj_cur_st-1.png" width="672" />
+</center>
 </div>
 
 

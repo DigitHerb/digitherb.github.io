@@ -37,6 +37,7 @@ knit_hooks$set(output = function(x, options) {
 #### ^-- end of knit_hook
 library("table1")
 library("readxl")
+library("wordcloud")
 
 gs4_deauth()
 filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
@@ -171,7 +172,7 @@ table1::table1(~Attribute, data=atrs, topclass="Rtable1-zebra")
 ---
 
 ```{r hb_tox, echo=F, message=F,comment=F, warnings=F}
-# --- Herb Toxicity(毒性) --- #
+# ------------------------ Herb Toxicity(毒性) ---------------------------- #
 
 #rw_hb_tox <- read_sheet("https://docs.google.com/spreadsheets/d/1B-yVSW6y5lZmQfihP5BxgkB4Y9KYZAcdec3PhhHzOPc/edit?usp=sharing",
 #                        sheet = "Sheet1")
@@ -220,16 +221,21 @@ head(hb_fun[,c('Corrected_ChName','PinYin','Function1')])
 
 <br>
 
+```{r qOut1, echo=F, message=F,comment=F, warnings=F}
 #### **Frequencies of Functions:** (since there might be 1 herb has >1 Functions, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
-
-<br>
+```
+#### **A Wordcloud chart of the first 200 herb functions is shown below:**
 
 <center>
 ```{r hb_fun_st, output.lines=10, echo=F, message=F,comment=F, warnings=F}
 hb_fun_only <- select(hb_fun,Function1:Function13)
 funs <- data.frame(Function=na.omit(unlist(hb_fun_only)))
 funs$Function <- factor(funs$Function,levels=as.character(names(sort(table(funs$Function),decreasing=T))))
-table1::table1(~Function, output.lines=10, data=funs, topclass="Rtable1-zebra")
+#table1::table1(~Function, output.lines=10, data=funs, topclass="Rtable1-zebra")
+fun_freq <- as.data.frame(table(funs$Function))
+wordcloud(words=fun_freq$Var1,freq=fun_freq$Freq,min.freq=1,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
 ```
 </center>
 
@@ -253,15 +259,20 @@ head(hb_cur[,c('Corrected_ChName','PinYin','Cure1')])
 
 <br>
 
+```{r qOut2, echo=F, message=F,comment=F, warnings=F}
 #### **Frequencies of Treatments:** (since there might be 1 herb has >1 Treatments, so the overall # below is greater than <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span>)
-
-<br>
+```
+#### **A Wordcloud chart of the first 200 herb treatments is shown below:**
 
 <center>
 ```{r hb_cur_st, output.lines=10, echo=F, message=F,comment=F, warnings=F}
 hb_cur_only <- select(hb_cur,Cure1:Cure40)
 curs <- data.frame(Treatment=na.omit(unlist(hb_cur_only)))
 curs$Treatment <- factor(curs$Treatment,levels=as.character(names(sort(table(curs$Treatment),decreasing=T))))
-table1::table1(~Treatment, output.lines=10, data=curs, topclass="Rtable1-zebra")
+#table1::table1(~Treatment, output.lines=10, data=curs, topclass="Rtable1-zebra")
+cur_freq <- as.data.frame(table(curs$Treatment))
+wordcloud(words=cur_freq$Var1,freq=cur_freq$Freq,min.freq=1,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
 ```
 </center>
