@@ -38,6 +38,8 @@ knit_hooks$set(output = function(x, options) {
 library("table1")
 library("readxl")    #<- this will readin excel files
 library("gridExtra") #<- this will output data in a grid format
+library("wordcloud")
+
 gs4_deauth()
 
 filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
@@ -54,7 +56,7 @@ readIn.func <- function(fileName){
 
 #### **Explore in Herbs:**
 
-- **There are 8 herbs' treatments/cures contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
+- **There are <span style="color:red;fond=bold">8 herbs' treatments/cures</span> contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
   - **The 8 herbs & their cures are listed below:**
 <center>
 ```{r hb_wen, , echo=F, message=F,comment=F, warnings=F}
@@ -66,7 +68,7 @@ grid.table(hb_wen)
 
 #### **Explore in Prescriptions:**
 
-- **There are <span style="color:red;fond=bold">51</span> prescriptions' name contain the Chinese character '瘟';**
+- **There are <span style="color:red;fond=bold">51 prescriptions' name</span> contain the Chinese character '瘟';**
 
   - **After briefly reviewing above prescriptions' functions & cures, the following name-selected prescriptions could be related to treating WenBing:**
 
@@ -75,17 +77,21 @@ grid.table(hb_wen)
   '解瘟丹', '救急避瘟散', '灵宝辟瘟丹', '辟瘟丹', '辟瘟集祥香', '辟瘟散', '辟瘟汤', '辟瘟丸', '辟瘟线香', '辟邪避瘟丹', 
   '清瘟败毒饮', '清瘟解毒丸'
   
-- **There are <span style="color:red;fond=bold">376</span> prescriptions selected by requiring the Cures/Treatments contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
+- **There are <span style="color:red;fond=bold">376 prescriptions</span> selected by requiring the <span style="color:red;fond=bold">Cures/Treatments</span> contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
 
-  - After briefly reviewing the functions & cures, a few prescriptions are eliminated, and a total <span style="color:red;fond=bold">280</span> prescriptions left for higher potential related to they plague & contagious viral diseases we'd like to be interested
-  - By checking the components of above prescriptions, top frequently used herbs are as below:
+  - After briefly reviewing the functions & cures, a few prescriptions are eliminated, and a total <span style="color:red;fond=bold">280 prescriptions</span> left for higher potential related to they plague & contagious viral diseases we'd like to be interested
+  - By checking the components of above prescriptions, the word cloud of top 100 frequently used herbs in treating WenBing prescriptions are shown as below:
 
 <center>
 ```{r fj_wen, output.lines=10, echo=F, message=F,comment=F, warnings=F}
 
 #fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
-fj_wen <- readIn.func(fileName="fj_wen_cmp_cl")
-fj_wen$Compo <- factor(fj_wen$Compo,levels=as.character(names(sort(table(fj_wen$Compo),decreasing=T))))
-table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
+fj_wen_cmp <- readIn.func(fileName="fj_wen_cmp_cl")
+fj_wen_cmp$Compo <- factor(fj_wen_cmp$Compo,levels=as.character(names(sort(table(fj_wen_cmp$Compo),decreasing=T))))
+#table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
+wen_cmp_freq <- as.data.frame(table(fj_wen_cmp$Compo))
+wordcloud(words=wen_cmp_freq$Var1,freq=wen_cmp_freq$Freq,min.freq=1,
+          max.words=100, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
 ```
 </center>
