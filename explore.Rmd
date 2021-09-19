@@ -50,7 +50,7 @@ readIn.func <- function(fileName){
 
 ---
 
-#### <span style="text-decoration:underline;color:green">**Explore the Herbs & Prescriptions Treating 瘟病 (WenBing, the Plague & Contagious Disease defined by Chinese Herbal Medicine).** </span>
+## <span style="text-decoration:underline;color:green">**Explore the Herbs & Prescriptions Treating 瘟病 (WenBing, the Plague & Contagious Disease defined by Chinese Herbal Medicine).** </span>
 
 - **Will use 'WenBing' to represent the disease we are interested & exploring.**
 
@@ -60,6 +60,7 @@ readIn.func <- function(fileName){
 
 - **There are <span style="color:red;fond=bold">8 herbs' treatments/cures</span> contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
   - **The 8 herbs & their cures are listed below:**
+  - **By comparing the herb components of prescriptions may treat WenBing (in 'Explore in Prescriptions' part), it seems there are more options if using multiple herbs to make a prescription formula to treat the disease.**
 <center>
 ```{r hb_wen, , echo=F, message=F,comment=F, warnings=F}
 #hb_wen <- read_excel("C:/Users/Sean/Downloads/hb_tre_wen_cue.xlsx")
