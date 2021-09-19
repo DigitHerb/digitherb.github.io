@@ -50,7 +50,9 @@ readIn.func <- function(fileName){
 
 ---
 
-#### **An Exploration on Chinese Herb & Prescription Treating 瘟病 (WenBing, the Plague & Contagious Disease defined by Chinese Herbal Medicine). Will use 'WenBing' to represent the disease we are interested**
+#### <span style="text-decoration:underline;color:green">**Explore the Herbs & Prescriptions Treating 瘟病 (WenBing, the Plague & Contagious Disease defined by Chinese Herbal Medicine).** </span>
+
+- **Will use 'WenBing' to represent the disease we are interested & exploring.**
 
 <br>
 
@@ -95,3 +97,12 @@ wordcloud(words=wen_cmp_freq$Var1,freq=wen_cmp_freq$Freq,min.freq=1,
           colors=brewer.pal(8,'Dark2'))
 ```
 </center>
+
+- **Some thoughts on above findings and can do more researches on:**
+  - **the herb '甘草' (Licorice, or Radix Glycyrrhiza), which occurred most among picked prescriptions, is a common 'supporting' herb used among prescriptions.** <br>
+    (see the wordcloud chart of the herb component frequencies among all prescriptions on [Prescription Page](https://digitherb.github.io/prescri.html) <br>
+    **'Supporting' herb means it help 'balance'/'buffering' the different herbs' functions in the prescription, to help them work together.** <br>
+    **On the other hand, the Licorice was considered having ingredients like ['glycyrrhizin' may affect the cell membrane stability](https://pubmed.ncbi.nlm.nih.gov/24870200/)--something sounds like why herbal medicine used it as a 'supporting' herb to 'balance/stabilize the prescription'.**
+
+---
+
