@@ -6,7 +6,7 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Herbal Medicine Theories"
+    - text: "Theories"
       href: theos.html
     - text: "Herbs"
       href: herbs.html
