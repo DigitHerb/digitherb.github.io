@@ -46,6 +46,14 @@ readIn.func <- function(fileName){
 }
 ```
 
+<br>
+
+### The Herbs Data Contains: Herbs' Name(药名), Property(药性), Taste(药味), Attribute(归经), Function(功能), Treatment(主治), & Toxity(毒性)
+- Name: include cleaned Chinese Names, PinYin (the unique index variable), English Names, & Latin Names (English/Latin Names are under imputing)
+- Property(药性): which clusters the herbs into 4 basic categories: Cold(寒), Cool(凉), Warm(温), Hot(热); (there are minor variations of the basic categories, such as Minor Cold(微寒), Minor Warm(微温), etc (the frequency of herbs properties in real world are listed in Property section below). <br>
+  Whether we can cluster/combine the minor variations into equivalent categories will be further studied.
+- 
+
 ```{r hb_nam, echo=F, message=F,comment=F, warnings=F}
 
 # ----------- Herb Names (药名) ------------ 
@@ -59,7 +67,6 @@ hb_nam <- rw_hb_nam[,c('Corrected_ChName','PinYin','EngName1','LatinName')]
 <br>
 
 #### **There are <span style="color:red;fond=bold"> **`r length(unique(hb_nam$Corrected_ChName))`** </span> herbs' info collected from different sources.** 
-- The Herb Data Contains: Herb Names(药名), Properties(药性), Tastes(药味), Attributes(归经), Functions(功能), Treatments(主治), & Toxities(毒性)
 
 <br>
 

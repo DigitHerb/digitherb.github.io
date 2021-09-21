@@ -1,75 +1,104 @@
 ---
-title: "Chinese Herbal Medicine Theories"
+title: "Chinese Herbal Medicine(CHM) Theories"
 ---
+#### **This page is not for collecting all the CHM knowledges, but to give quick references to the things have been studied.**
 
 <br>
 
-## **Fundamental Components & Logics**
+## **Fundamental CHM Philosophies**
 
 <br>
 
-#### **Yin-Yang & Five Elements 阴阳 & 五行**
+#### **Yin-Yang (阴阳):**
 
-- **Yin-Yang:**
-  - Negative (阴):
-  - Positive (阳):
-- **Five Elements:**
-  - Metal (金): 
-  - Wood (木):
-  - Earth (土):
-  - Water (水):
-  - Fire (火):
+- Negative (阴):
+- Positive (阳):
+  
+#### **Five Elements 五行:**
+
+- Metal (金): 
+- Wood (木):
+- Earth (土):
+- Water (水):
+- Fire (火):
 
 #### **Table of Matching Herbal Medicine Concepts with Five Elements**
 
-| **五行** | **金(Metal)** | **木(Wood)** | **土(Earth)** | **水(Water)** | **火(Fire)** | **注释** |
-|:----:|:--:|:--:|:--:|:--:|:--:|:----:|
-| **相生** | 水(Water) | 火(Fire) | 金(Metal) | 木(Wood) | 土(Earth) | |
-| **相克** | 木 | 土 | 水 | 火 | 金 | |
-| **五脏** | 肺 | 肝 | 脾 | 肾 | 心 | |
-| **六腑** | 大肠 | 胆 | 胃 | 膀胱 | 小肠 | 三焦不对任一五行|
-| **奇恒之腑** | 脑 | 髓 | 女子胞 | 脉 | |
-| **药味** | 辛 | 酸(涩) | 甘 | 咸 | 苦 | 平不对任一五行 |
+- the promotes & Inhibits in below table are in the logic that the elements in the title cell will promote/inhibit the elements in their lower rows
+- the other concepts (except the promotes & inhibit rows) were matched to the Five Elements or at best (if there are >5 elements of the concept)
+  - eg. the Lung was considered having the 'Metal' character, and the Liver was considered having the 'Wood' character.
+
+<br>
+
+| **五行(FiveElements)** | **金(Metal)** | **木(Wood)** | **土(Earth)** | **水(Water)** | **火(Fire)** | **注释** |
+|:----|:--:|:--:|:--:|:--:|:--:|:----:|
+| **相生(Promote)** | 水(Water) | 火(Fire) | 金(Metal) | 木(Wood) | 土(Earth) | |
+| **相克(Inhibit)** | 木(Wood) | 土(Earth) | 水(Water) | 火(Fire) | 金(Metal) | |
+| **五脏(Five Solid Organs)** | 肺(Lung) | 肝(Liver) | 脾(Spleen) | 肾(Kidney) | 心(Heart)| |
+| **六腑(Six Hallow Organs)** | 大肠(Large Intestine) | 胆(Gallbladder) | 胃(Stomach) | 膀胱(Bladder) | 小肠(Small Intestine) | 三焦(Sanjiao)不对任一五行|
+| **奇恒之腑(Special Organs)** | 脑(Brain) | 髓(Marrow) | 女子胞(Uterus & Ovaries) | 骨(Bone) | 脉(Vessels) | |
+| **药味(Herb Tastes)** | 辛(Spicy) | 酸(涩)(Sour) | 甘(Sweet) | 咸(Salty) | 苦(Bitter) | 平(Plain)不对任一五行 |
 
 
 #### **Five Solid Organs 五脏**
 
-- 心肝脾肺肾
+- 心(Heart)
+- 肝(Liver)
+- 脾(Spleen)
+- 肺(Lung)
+- 肾(Kidney)
 
 #### **Six Hollow Organs 六腑**
 
-- 大肠 胆 膀胱 小肠 胃 三焦
+- 大肠 (Large Intestine)
+- 胆 (Gallbladder)
+- 膀胱 (Bladder)
+- 小肠 (Small Intestine)
+- 胃 (Stomach)
+- 三焦 (Sanjiao)
 
 #### **Six Channel Terms 六经**
 
-- 太阳 阳明 少阳 太阴 少阴 厥阴 
+- 太阳(Major Positive) > 阳明(Medium Positive) > 少阳(Minor Positive) ; 
+- 太阴(Major Negative) > 少阴(Medium Negative) > 厥阴(Minor Negative) ;
 
 #### **Six Disease Elements 六邪**
 
-- 风寒暑湿燥火
+- 风 (Wind)
+- 寒 (Cold)
+- 暑 (Heat)
+- 湿 (Wet)
+- 燥 (Dry)
+- 火 (Fire)
 
 #### **Seven Emotions 七情**
 
-- 喜怒忧思悲恐惊
+- 喜(Happy)
+- 怒(Angry)
+- 忧(Worry)
+- 思(Thought)
+- 悲(Sorrow)
+- 恐(Scary)
+- 惊(Shocked)
 
-#### **Eight Routes 八脉**
+#### **Eight Channels/Routes 八脉**
 
 - 督脉 任脉 冲脉 带脉 阴维脉 阳维脉 阴跷脉 阳跷脉
 
-#### **Twelve Formal Channels**
+#### **Twelve Formal Channels 十二正经**
 
-- 手太阴-肺
-- 手厥阴-心包
-- 手少阴-心
-- 手阳明-大肠
-- 手少阳-三焦
-- 手太阳-小肠
-- 足太阴-脾
-- 足厥阴-肝
-- 足少阴-肾
-- 足阳明-胃
-- 足少阳-胆
-- 足太阳-膀胱
+- 手太阴-肺 (Hand-Major Negative-Lung)
+- 手厥阴-心包 (Hand-Minor Negative-Pericardium)
+- 手少阴-心 (Hand-Medium Negative-Heart)
+- 手阳明-大肠 (Hand-Medium Positive-Large Intestine)
+- 手少阳-三焦 (Hand-Minor Positive-Sanjiao)
+- 手太阳-小肠 (Hand-Major Positive-Small Intestine)
+- 足太阴-脾 (Foot-Major Negative-Spleen)
+- 足厥阴-肝 (Foot-Minor Negative-Liver)
+- 足少阴-肾 (Foot-Medium Negative-Kidney)
+- 足阳明-胃 (Foot-Medium Positive-Stomach)
+- 足少阳-胆 (Foot-Minor Positive-Gallbladder)
+- 足太阳-膀胱 (Foot-Major Positive-Bladder)
 
 ---
 
@@ -79,22 +108,45 @@ title: "Chinese Herbal Medicine Theories"
 
 #### **Herb Property, Taste & Attributes**
 
-- Herb Property(药性)
-  - 寒热温凉
-- Herb Taste(药味)
-  - 酸苦甘辛咸
-- Attributes(归经)
-  - 心肝脾肺肾
-  
-#### **Seven Relations Among Herbs 七情和合**
+- **Herb Property(药性)**
+  - 4 Basic Properties: 
+    - 寒 (Cold)
+    - 热 (Hot)
+    - 温 (Warm)
+    - 凉 (Cool)
+  - Extended/Variation Properties: 
+    - 大寒 (Major Cold)
+    - 微寒 (Minor Cold)
+    - 大热 (Major Hot)
+    - 微热 (Minor Hot)
+    - 大温 (Major Warm)
+    - 微温 (Minor Warm)
 
-- 单行：一味药独立发挥左用。如独参汤、独圣丸(五灵脂)、首乌片
-- 相须：两种左用相似的药配伍，有相互协同的左用。如大黄&芒硝，乳香&没药，当归&白芍
-- 相使：两种左用不同的药配伍，可相互促进。如黄芪&茯苓，白术&防风，巴戟天&覆盆子
-- 相畏：一种药能抑制或减轻另一种药的烈性。如，桔梗畏白芨，远志畏真珠，丁香畏郁金
-- 相杀：一种药能减轻或消除另一种药的毒性。如，大黄与附子，甘遂与芍药、石膏与粳米
-- 相恶：两种药合用会降低或丧失药效，属配伍禁忌。如，元参恶干姜，巴戟恶雷丸，狗脊恶败酱
-- 相反：两种药何用能产生毒副作用，属配伍禁忌。如，乌头反半夏，大戟反芫花，细辛反藜芦
+- **Herb Taste(药味)**
+  - 5 Basic Tastes: 
+    - 酸 (Sour)
+    - 苦 (Bitter)
+    - 甘 (Sweet)
+    - 辛 (Spicy)
+    - 咸 (Salty)
+  - Extended/Variation Tastes: 大苦 (Major Bitter), 微苦 (Minor Bitter), 微辛 (Minor Spicy), 微酸 (Minor Sour),  微咸 (Minor Salty), 涩 (Astringent), 微涩 (Minor Astringent), 麻 (Numb), 微麻 (Minor Numb), 淡 (Light), 平 (Plain)
+
+- **Attributes(归经)**
+  - 心 (Heart)
+  - 肝 (Liver)
+  - 脾 (Spleen)
+  - 肺 (Lung)
+  - 肾 (Kidney)
+  
+#### **Seven Types of Herb Usage & Reactions 七情和合**
+
+- 单行 (Single Usage)：一味药独立发挥左用。如独参汤、独圣丸(五灵脂)、首乌片
+- 相须 (Similar Function & Promote Each Other)：两种左用相似的药配伍，有相互协同的左用。如大黄&芒硝，乳香&没药，当归&白芍
+- 相使 (Different Function & Promote Each Other)：两种左用不同的药配伍，可相互促进。如黄芪&茯苓，白术&防风，巴戟天&覆盆子
+- 相畏 (One Suppress the Other's Strength)：一种药能抑制或减轻另一种药的烈性。如，桔梗畏白芨，远志畏真珠，丁香畏郁金
+- 相杀 (One Suppress the Other's Toxicity)：一种药能减轻或消除另一种药的毒性。如，大黄与附子，甘遂与芍药、石膏与粳米
+- 相恶 (One Deactivates the Other's Efficacy/Effectiveness)：两种药合用会降低或丧失药效，属配伍禁忌。如，元参恶干姜，巴戟恶雷丸，狗脊恶败酱
+- 相反 (Cause Toxicity when Use Together)：两种药何用能产生毒副作用，属配伍禁忌。如，乌头反半夏，大戟反芫花，细辛反藜芦
 
 ---
 

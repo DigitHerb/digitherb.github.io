@@ -1,5 +1,6 @@
 ---
 title: "Explore the Herb/Prescription's Functions & Cures"
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE} 
@@ -39,6 +40,8 @@ library("table1")
 library("readxl")    #<- this will readin excel files
 library("gridExtra") #<- this will output data in a grid format
 library("wordcloud")
+#library("shiny")
+library("ggplot2")
 
 gs4_deauth()
 
@@ -62,7 +65,7 @@ readIn.func <- function(fileName){
   - **The 8 herbs & their cures are listed below:**
   - **By comparing the herb components of prescriptions may treat WenBing (in 'Explore in Prescriptions' part), it seems there are more options if using multiple herbs to make a prescription formula to treat the disease.**
 <center>
-```{r hb_wen, , echo=F, message=F,comment=F, warnings=F}
+```{r hb_wen, echo=F, message=F,comment=F, warnings=F}
 #hb_wen <- read_excel("C:/Users/Sean/Downloads/hb_tre_wen_cue.xlsx")
 hb_wen <- readIn.func(fileName="hb_tre_wen_cue")
 grid.table(hb_wen)
