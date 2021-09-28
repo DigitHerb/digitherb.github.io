@@ -3,8 +3,8 @@ title: "Explore the Herb/Prescription's Functions & Cures"
 runtime: shiny
 ---
 
-```{r setup, include=FALSE} 
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = FALSE) 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, comment = NA, message=FALSE, warning=FALSE) #<--this will remove comments, messages, & warnings
 ```
 
 ```{r libSets, echo=FALSE, message=FALSE}
@@ -13,6 +13,13 @@ library("tidyverse")
 library("tidygraph")
 library("ggraph")
 library("googlesheets4")
+library("gridExtra")
+library("table1")
+library("readxl")    #<- this will readin excel files
+library("gridExtra") #<- this will output data in a grid format
+library("wordcloud")
+#library("shiny")
+library("ggplot2")
 library("knitr")
 #### this paragraph is the knit_hook created by yihui to reduce results lines
 hook_output <- knit_hooks$get("output")
@@ -36,12 +43,6 @@ knit_hooks$set(output = function(x, options) {
   hook_output(x, options)
 })
 #### ^-- end of knit_hook
-library("table1")
-library("readxl")    #<- this will readin excel files
-library("gridExtra") #<- this will output data in a grid format
-library("wordcloud")
-#library("shiny")
-library("ggplot2")
 
 gs4_deauth()
 

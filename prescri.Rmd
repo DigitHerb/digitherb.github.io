@@ -2,8 +2,8 @@
 title: "Prescriptions' Functions & Cures"
 ---
 
-```{r setup, include=FALSE} 
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = FALSE) 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, comment = NA, message=FALSE, warning=FALSE) #<--this will remove comments, messages, & warnings
 ```
 
 ```{r libSets, echo=FALSE, message=FALSE}
@@ -12,6 +12,10 @@ library("tidyverse")
 library("tidygraph")
 library("ggraph")
 library("googlesheets4")
+library("table1")
+library("readxl")
+library("wordcloud")
+library("gridExtra")
 library("knitr")
 #### this paragraph is the knit_hook created by yihui to reduce results lines
 hook_output <- knit_hooks$get("output")
@@ -35,9 +39,6 @@ knit_hooks$set(output = function(x, options) {
   hook_output(x, options)
 })
 #### ^-- end of knit_hook
-library("table1")
-library("readxl")
-library("wordcloud")
 
 gs4_deauth()
 filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"

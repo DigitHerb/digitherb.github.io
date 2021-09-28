@@ -11,7 +11,7 @@
 
 
 
-<title>Herbs’ Properties &amp; Functions</title>
+<title>Herbs’ Characters &amp; Functions</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -246,7 +246,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="theos.html">Herbal Medicine Theories</a>
+  <a href="theos.html">Theories</a>
 </li>
 <li>
   <a href="herbs.html">Herbs</a>
@@ -269,17 +269,29 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Herbs’ Properties &amp; Functions</h1>
+<h1 class="title toc-ignore">Herbs’ Characters &amp; Functions</h1>
 
 </div>
 
 
 <p><br></p>
+<div id="the-herbs-data-contains-herbs-name药名-property药性-taste药味-attribute归经-function功能-treatment主治-toxicity毒性" class="section level3">
+<h3><strong>The Herbs Data Contains: Herbs’ Name(药名), Property(药性), Taste(药味), Attribute(归经), Function(功能), Treatment(主治), &amp; Toxicity(毒性)</strong></h3>
+<ul>
+<li>Name: include cleaned Chinese Names, PinYin (the unique index variable), English Names, &amp; Latin Names (English/Latin Names are under imputing)</li>
+<li>Property (药性): which clusters the herbs into 4 basic categories: Cold(寒), Cool(凉), Warm(温), Hot(热); (there are minor variations of the basic categories, such as Minor Cold(微寒), Minor Warm(微温), etc (the frequency of herbs properties in real world are listed in Property section below). <br> Whether we can cluster/combine the minor variations into equivalent categories will be further studied.</li>
+<li>Taste (药味):</li>
+<li>Attribute (归经):</li>
+<li>Function (功能):</li>
+<li>Treatment (主治):</li>
+<li>Toxicity (毒性):
+<ul>
+<li>Not all herb records had toxicity information, the missing might be considered as no toxic, although some herbs marked as No toxic in an obvious way.</li>
+</ul></li>
+</ul>
+<p><br></p>
 <div id="there-are-7785-herbs-info-collected-from-different-sources." class="section level4">
 <h4><strong>There are <span style="color:red;fond=bold"> <strong>7785</strong> </span> herbs’ info collected from different sources.</strong></h4>
-<ul>
-<li>The Herb Data Contains: Herb Names(药名), Properties(药性), Tastes(药味), Attributes(归经), Functions(功能), Treatments(主治), &amp; Toxities(毒性)</li>
-</ul>
 <p><br></p>
 </div>
 <div id="example-of-the-names-of-herbs-as-collected-cleaned" class="section level4">
@@ -296,6 +308,7 @@ $(document).ready(function () {
 <ul>
 <li>The English / Latin Names are still need to do more imputation &amp; verification.</li>
 </ul>
+<p><br></p>
 <hr />
 </div>
 <div id="example-of-herb-properties-药性-from-above-collections" class="section level4">
@@ -385,8 +398,8 @@ $(document).ready(function () {
 </center>
 <hr />
 </div>
-<div id="example-of-herb-taste-药性-from-above-collections" class="section level4">
-<h4><strong>Example of Herb Taste (药性) from above collections:</strong></h4>
+<div id="example-of-herb-taste-药味-from-above-collections" class="section level4">
+<h4><strong>Example of Herb Taste (药味) from above collections:</strong></h4>
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Taste1
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt; 
@@ -708,6 +721,7 @@ $(document).ready(function () {
 <center>
 <img src="herbs_files/figure-html/hb_cur_st-1.png" width="672" />
 </center>
+</div>
 </div>
 
 
