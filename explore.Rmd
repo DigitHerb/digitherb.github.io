@@ -77,12 +77,27 @@ grid.table(hb_wen)
 
 - **There are <span style="color:red;fond=bold">51 prescriptions' name</span> contain the Chinese character '瘟';**
 
-  - **After briefly reviewing above prescriptions' functions & cures, the following name-selected prescriptions could be related to treating WenBing:**
+  - **After briefly reviewing above prescriptions' functions & cures, the following <span style="color:red;fond=bold">29</span> name-selected prescriptions could be related to treating WenBing:**
 
   '白避瘟散', '避瘟丹', '逼瘟丹', '避瘟明目清上散', '避瘟散', '避瘟杀鬼丸', '避瘟丸', '除秽靖瘟丹', '除瘟化毒散', 
   '除瘟化毒汤', '除瘟化痰汤', '除瘟救苦丹', '除瘟散', '大辟瘟丹', '防毒气防瘟疫灵药', '解毒辟瘟丹', '解热辟瘟丹', 
   '解瘟丹', '救急避瘟散', '灵宝辟瘟丹', '辟瘟丹', '辟瘟集祥香', '辟瘟散', '辟瘟汤', '辟瘟丸', '辟瘟线香', '辟邪避瘟丹', 
   '清瘟败毒饮', '清瘟解毒丸'
+  - By checking the components of above prescriptions, the word cloud of top 100 frequently used herbs in the 29 prescriptions are show as below:
+  
+<center>
+```{r fj_wen_nm, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+
+#fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
+fj_wen_nm_cmp_v <- readIn.func(fileName="fj_wen_nm_cmp_v")
+fj_wen_nm_cmp_v$Compo <- factor(fj_wen_nm_cmp_v$Comps,levels=as.character(names(sort(table(fj_wen_nm_cmp_v$Comps),decreasing=T))))
+#table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
+wen_cmp_freq <- as.data.frame(table(fj_wen_nm_cmp_v$Comps))
+wordcloud(words=wen_cmp_freq$Var1,freq=wen_cmp_freq$Freq,min.freq=1,
+          max.words=100, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
   
 - **There are <span style="color:red;fond=bold">376 prescriptions</span> selected by requiring the <span style="color:red;fond=bold">Cures/Treatments</span> contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
 
