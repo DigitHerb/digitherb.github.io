@@ -1,0 +1,127 @@
+---
+title: "Exploration of Pandemic-like Disease"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, comment = NA, message=FALSE, warning=FALSE) #<--this will remove comments, messages, & warnings
+```
+
+```{r libSets, echo=FALSE, message=FALSE}
+library("googlesheets4")
+library("tidyverse")
+library("tidygraph")
+library("ggraph")
+library("googlesheets4")
+library("gridExtra")
+library("table1")
+library("readxl")    #<- this will readin excel files
+library("gridExtra") #<- this will output data in a grid format
+library("wordcloud")
+#library("shiny")
+library("ggplot2")
+library("knitr")
+#### this paragraph is the knit_hook created by yihui to reduce results lines
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+#### ^-- end of knit_hook
+
+gs4_deauth()
+
+filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
+readIn.func <- function(fileName){
+  read_excel(paste0(filePath,fileName,".xlsx"))
+}
+```
+
+---
+
+## <span style="text-decoration:underline;color:green">**Explore the Herbs & Prescriptions Treating 瘟病 (WenBing, the Plague & Contagious Disease defined by Chinese Herbal Medicine).** </span>
+
+- **Will use 'WenBing' to represent the disease we are interested & exploring.**
+
+<br>
+
+#### **Explore in Herbs:**
+
+- **There are <span style="color:red;fond=bold">8 herbs' treatments/cures</span> contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
+  - **The 8 herbs & their cures are listed below:**
+  - **By comparing the herb components of prescriptions may treat WenBing (in 'Explore in Prescriptions' part), it seems there are more options if using multiple herbs to make a prescription formula to treat the disease.**
+<center>
+```{r hb_wen, echo=F, message=F,comment=F, warnings=F}
+#hb_wen <- read_excel("C:/Users/Sean/Downloads/hb_tre_wen_cue.xlsx")
+hb_wen <- readIn.func(fileName="hb_tre_wen_cue")
+grid.table(hb_wen)
+```
+</center>
+
+#### **Explore in Prescriptions:**
+
+- **There are <span style="color:red;fond=bold">51 prescriptions' name</span> contain the Chinese character '瘟';**
+
+  - **After briefly reviewing above prescriptions' functions & cures, the following <span style="color:red;fond=bold">29</span> name-selected prescriptions could be related to treating WenBing:**
+
+  '白避瘟散', '避瘟丹', '逼瘟丹', '避瘟明目清上散', '避瘟散', '避瘟杀鬼丸', '避瘟丸', '除秽靖瘟丹', '除瘟化毒散', 
+  '除瘟化毒汤', '除瘟化痰汤', '除瘟救苦丹', '除瘟散', '大辟瘟丹', '防毒气防瘟疫灵药', '解毒辟瘟丹', '解热辟瘟丹', 
+  '解瘟丹', '救急避瘟散', '灵宝辟瘟丹', '辟瘟丹', '辟瘟集祥香', '辟瘟散', '辟瘟汤', '辟瘟丸', '辟瘟线香', '辟邪避瘟丹', 
+  '清瘟败毒饮', '清瘟解毒丸'
+  - By checking the components of above prescriptions, the word cloud of top 100 frequently used herbs in the 29 prescriptions are show as below:
+  
+<center>
+```{r fj_wen_nm, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+
+#fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
+fj_wen_nm_cmp_v <- readIn.func(fileName="fj_wen_nm_cmp_v")
+fj_wen_nm_cmp_v$Compo <- factor(fj_wen_nm_cmp_v$Comps,levels=as.character(names(sort(table(fj_wen_nm_cmp_v$Comps),decreasing=T))))
+#table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
+wen_cmp_freq <- as.data.frame(table(fj_wen_nm_cmp_v$Comps))
+wordcloud(words=wen_cmp_freq$Var1,freq=wen_cmp_freq$Freq,min.freq=1,
+          max.words=100, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
+  
+- **There are <span style="color:red;fond=bold">376 prescriptions</span> selected by requiring the <span style="color:red;fond=bold">Cures/Treatments</span> contain words '瘟'(but not '大头瘟','虾蟆瘟'), '时疫', '时气'&'传染', '天行'**
+
+  - After briefly reviewing the functions & cures, a few prescriptions are eliminated, and a total <span style="color:red;fond=bold">280 prescriptions</span> left for higher potential related to they plague & contagious viral diseases we'd like to be interested
+  - By checking the components of above prescriptions, the word cloud of top 100 frequently used herbs in treating WenBing prescriptions are shown as below:
+
+<center>
+```{r fj_wen, output.lines=10, echo=F, message=F,comment=F, warnings=F}
+
+#fj_wen <- read_excel("C:/Users/Sean/Downloads/fj_wen_cmp_cl.xlsx")
+fj_wen_cmp <- readIn.func(fileName="fj_wen_cmp_cl")
+fj_wen_cmp$Compo <- factor(fj_wen_cmp$Compo,levels=as.character(names(sort(table(fj_wen_cmp$Compo),decreasing=T))))
+#table1::table1(~Compo, data=fj_wen, topclass="Rtable1-zebra")
+wen_cmp_freq <- as.data.frame(table(fj_wen_cmp$Compo))
+wordcloud(words=wen_cmp_freq$Var1,freq=wen_cmp_freq$Freq,min.freq=1,
+          max.words=100, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
+
+- **Some thoughts on above findings and can do more researches on:**
+  - **the herb '甘草' (Licorice, or Radix Glycyrrhiza), which occurred most among picked prescriptions, is a common 'supporting' herb used among prescriptions.** <br>
+    (see the wordcloud chart of the herb component frequencies among all prescriptions on [Prescription Page](https://digitherb.github.io/prescri.html) <br>
+    **'Supporting' herb means it help 'balance'/'buffering' the different herbs' functions in the prescription, to help them work together.** <br>
+    **On the other hand, the Licorice was considered having ingredients like ['glycyrrhizin' may affect the cell membrane stability](https://pubmed.ncbi.nlm.nih.gov/24870200/)--something sounds like why herbal medicine used it as a 'supporting' herb to 'balance/stabilize the prescription'.**
+
+---
+

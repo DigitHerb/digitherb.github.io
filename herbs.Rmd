@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo=FALSE, comment = NA, message=FALSE, warning=FALSE) #<
 library("googlesheets4")
 library("tidyverse")
 library("tidygraph")
-library("googlesheets4")
 library("table1")
 library("readxl")
 library("wordcloud")

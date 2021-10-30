@@ -13,7 +13,11 @@ navbar:
     - text: "Prescriptions"
       href: prescri.html
     - text: "Explore"
-      href: explore.html
+      menu:
+      - text: "Pandemic"
+        href: pandemic.html
+      - text: "Rheuma"
+        href: rheuma
 
 output:
   html_document:

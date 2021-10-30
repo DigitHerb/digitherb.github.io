@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Exploration of Pandemic-like Disease</title>
+
+<script src="site_libs/header-attrs-2.11.3/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">DigitHerb</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="theos.html">Theories</a>
+</li>
+<li>
+  <a href="herbs.html">Herbs</a>
+</li>
+<li>
+  <a href="prescri.html">Prescriptions</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Explore
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="pandemic.html">Pandemic</a>
+    </li>
+    <li>
+      <a href="rheuma">Rheuma</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Exploration of Pandemic-like Disease</h1>
+
+</div>
+
+
+<hr />
+<div id="explore-the-herbs-prescriptions-treating-瘟病-wenbing-the-plague-contagious-disease-defined-by-chinese-herbal-medicine." class="section level2">
+<h2><span style="text-decoration:underline;color:green"><strong>Explore the Herbs &amp; Prescriptions Treating 瘟病 (WenBing, the Plague &amp; Contagious Disease defined by Chinese Herbal Medicine).</strong> </span></h2>
+<ul>
+<li><strong>Will use ‘WenBing’ to represent the disease we are interested &amp; exploring.</strong></li>
+</ul>
+<p><br></p>
+<div id="explore-in-herbs" class="section level4">
+<h4><strong>Explore in Herbs:</strong></h4>
+<ul>
+<li><strong>There are <span style="color:red;fond=bold">8 herbs’ treatments/cures</span> contain words ‘瘟’(but not ‘大头瘟’,‘虾蟆瘟’), ‘时疫’, ‘时气’&amp;‘传染’, ‘天行’</strong>
+<ul>
+<li><strong>The 8 herbs &amp; their cures are listed below:</strong></li>
+<li><strong>By comparing the herb components of prescriptions may treat WenBing (in ‘Explore in Prescriptions’ part), it seems there are more options if using multiple herbs to make a prescription formula to treat the disease.</strong>
+<center>
+<img src="pandemic_files/figure-html/hb_wen-1.png" width="672" />
+</center></li>
+</ul></li>
+</ul>
+</div>
+<div id="explore-in-prescriptions" class="section level4">
+<h4><strong>Explore in Prescriptions:</strong></h4>
+<ul>
+<li><p><strong>There are <span style="color:red;fond=bold">51 prescriptions’ name</span> contain the Chinese character ‘瘟’;</strong></p>
+<ul>
+<li><strong>After briefly reviewing above prescriptions’ functions &amp; cures, the following <span style="color:red;fond=bold">29</span> name-selected prescriptions could be related to treating WenBing:</strong></li>
+</ul>
+<p>‘白避瘟散’, ‘避瘟丹’, ‘逼瘟丹’, ‘避瘟明目清上散’, ‘避瘟散’, ‘避瘟杀鬼丸’, ‘避瘟丸’, ‘除秽靖瘟丹’, ‘除瘟化毒散’, ‘除瘟化毒汤’, ‘除瘟化痰汤’, ‘除瘟救苦丹’, ‘除瘟散’, ‘大辟瘟丹’, ‘防毒气防瘟疫灵药’, ‘解毒辟瘟丹’, ‘解热辟瘟丹’, ‘解瘟丹’, ‘救急避瘟散’, ‘灵宝辟瘟丹’, ‘辟瘟丹’, ‘辟瘟集祥香’, ‘辟瘟散’, ‘辟瘟汤’, ‘辟瘟丸’, ‘辟瘟线香’, ‘辟邪避瘟丹’, ‘清瘟败毒饮’, ‘清瘟解毒丸’</p>
+<ul>
+<li>By checking the components of above prescriptions, the word cloud of top 100 frequently used herbs in the 29 prescriptions are show as below:</li>
+</ul></li>
+</ul>
+<center>
+<img src="pandemic_files/figure-html/fj_wen_nm-1.png" width="672" />
+</center>
+<ul>
+<li><p><strong>There are <span style="color:red;fond=bold">376 prescriptions</span> selected by requiring the <span style="color:red;fond=bold">Cures/Treatments</span> contain words ‘瘟’(but not ‘大头瘟’,‘虾蟆瘟’), ‘时疫’, ‘时气’&amp;‘传染’, ‘天行’</strong></p>
+<ul>
+<li>After briefly reviewing the functions &amp; cures, a few prescriptions are eliminated, and a total <span style="color:red;fond=bold">280 prescriptions</span> left for higher potential related to they plague &amp; contagious viral diseases we’d like to be interested</li>
+<li>By checking the components of above prescriptions, the word cloud of top 100 frequently used herbs in treating WenBing prescriptions are shown as below:</li>
+</ul></li>
+</ul>
+<center>
+<img src="pandemic_files/figure-html/fj_wen-1.png" width="672" />
+</center>
+<ul>
+<li><strong>Some thoughts on above findings and can do more researches on:</strong>
+<ul>
+<li><strong>the herb ‘甘草’ (Licorice, or Radix Glycyrrhiza), which occurred most among picked prescriptions, is a common ‘supporting’ herb used among prescriptions.</strong> <br> (see the wordcloud chart of the herb component frequencies among all prescriptions on <a href="https://digitherb.github.io/prescri.html">Prescription Page</a> <br> <strong>‘Supporting’ herb means it help ‘balance’/‘buffering’ the different herbs’ functions in the prescription, to help them work together.</strong> <br> <strong>On the other hand, the Licorice was considered having ingredients like <a href="https://pubmed.ncbi.nlm.nih.gov/24870200/">‘glycyrrhizin’ may affect the cell membrane stability</a>–something sounds like why herbal medicine used it as a ‘supporting’ herb to ‘balance/stabilize the prescription’.</strong></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
