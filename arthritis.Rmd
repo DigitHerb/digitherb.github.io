@@ -1,0 +1,182 @@
+---
+title: "Exploration of Arthritis-like Diseases"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, comment = NA, message=FALSE, warning=FALSE) #<--this will remove comments, messages, & warnings
+```
+
+```{r libSets, echo=FALSE, message=FALSE}
+library("googlesheets4")
+library("tidyverse")
+library("tidygraph")
+library("ggraph")
+library("googlesheets4")
+library("gridExtra")
+library("table1")
+library("readxl")    #<- this will readin excel files
+library("gridExtra") #<- this will output data in a grid format
+library("wordcloud")
+library("ggplot2")
+library("knitr")
+#### this paragraph is the knit_hook created by yihui to reduce results lines
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+#### ^-- end of knit_hook
+
+gs4_deauth()
+
+filePath <- "C:/Users/Sean/Documents/DigitCoral/DigitHerb/Cleaned/"
+readIn.func <- function(fileName){
+  read_excel(paste0(filePath,fileName,".xlsx"))
+}
+```
+
+---
+
+## **The concept of 风湿 (FengShi) in Chinese Herbal Medicine:**
+
+- **FengShi, is an ancient Chinese diagnosis which included Arthritis (& Rheumatoid Arthritis,RA), Osteoporosis,  Body/Joint Pain & deformities.**
+- **The etiology of this group of symptoms are considered as the invasion of 'cold' & 'moisture' essences into human body, and show significant symptoms (sore, pain, & deformation) on body muscles/bones, major joints (like knee, wrist).**
+
+---
+
+### **Explore Herbs' Cures Targeting 'FengShi':**
+*(search keywords contain '风湿' or '风'&'湿' among herbs' 'Cures')*
+
+```{r hb_fj_nam}
+
+# ----------- Herb & Prescription Names ------------ 
+
+hb_nam <- readIn.func(fileName = "Copy of HerbNames_v210807")
+fj_nam <- readIn.func(fileName = "FangJiNames_v210822")
+
+```
+
+```{r fs_hb_cur}
+
+# ----------- Herbs Cure FengShi ------------ 
+
+fs_hb_cur <- readIn.func(fileName = "fs_hb_curs")
+
+```
+
+- **Among all <span style="color:red;fond=bold"> `r length(unique(hb_nam$Corrected_ChName))` </span> herbs collected, there are <span style="color:red;fond=bold"> `r length(unique(fs_hb_cur$Corrected_ChName))` </span> herbs' 'Cure' contain the keyword '风湿' or '风'&'湿';**
+
+- **Among these herbs would cure FengShi, a word cloud of all their 'Cures'(or say symptoms, occurred >1 times) is shown below:**
+<center>
+```{r fs_hb_symp_wdcld}
+fs_hb_symp_only <- select(fs_hb_cur,Symptom)
+symps <- data.frame(Symptom=na.omit(unlist(fs_hb_symp_only)))
+symps$Symptom <- factor(symps$Symptom,levels=as.character(names(sort(table(symps$Symptom),decreasing=T))))
+symp_freq <- as.data.frame(table(symps$Symptom))
+wordcloud(words=symp_freq$Var1,freq=symp_freq$Freq,min.freq=2,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
+- **From above word cloud, we can see that beyond '风湿', these herbs also cure '跌打损伤'(Damages by Falling & Beaten), '骨折'(Fracture), etc, which highly related to pain, tissue (muscle or bone) damages.**
+
+---
+
+### **Explore Herbs' Functions Related to 'FengShi':**
+*(search keywords like '风湿' or '风'&'湿' among herbs' 'Function')* 
+
+*(Herbs' 'Function' is defined by herbal medicine theories, whereas 'Cure' are from patients' complains & symptoms )* 
+
+```{r fs_hb_fun}
+
+# ----------- Herbs Function FengShi ------------ 
+
+fs_hb_fun <- readIn.func(fileName = "fs_hb_tres")
+
+```
+
+- **Among all <span style="color:red;fond=bold">`r length(unique(hb_nam$Corrected_ChName))`</span> herbs collected, there are <span style="color:red;fond=bold"> `r length(unique(fs_hb_fun$Corrected_ChName))` </span> herbs' Function contain the keyword '风湿' or '风'&'湿';**
+
+- **Among these herbs which would theoretically function on FengShi, a word cloud of all the their 'Functions'(occurred >1 times) is shown below:**
+
+<center>
+```{r fs_hb_fun_wdcld}
+fs_hb_fun_only <- select(fs_hb_fun,Treat)
+funs <- data.frame(Treat=na.omit(unlist(fs_hb_fun_only)))
+funs$Treat <- factor(funs$Treat,levels=as.character(names(sort(table(funs$Treat),decreasing=T))))
+fun_freq <- as.data.frame(table(funs$Treat))
+wordcloud(words=fun_freq$Var1,freq=fun_freq$Freq,min.freq=2,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
+
+- **From above word cloud, we can see '祛风除湿', which is a specific herb function targeting on FengShi, was selected;**
+- **And beyond the functions target on FengShi('祛风除湿','祛风湿'), there are also functions like '清热解毒'(clear the body heat & toxic essences) & '活血止痛'(improve the blood flow & stop pain) found as highly correlated functions of the same group of herbs. And those functions would help improving the overall symptoms accompanied with FengShi.**
+
+---
+
+### **Explore the Herbal Prescriptions Could Cure FengShi:**
+
+```{r fs_fj_cur}
+
+# ----------- FangJi Cure FengShi ------------ 
+
+fs_fj_cur <- readIn.func(fileName = "fs_fj_curs")
+
+```
+
+- **Among all <span style="color:red;fond=bold">`r length(unique(fj_nam$Corrected_ChName))`</span> herbal prescriptions collected, there are <span style="color:red;fond=bold">`r length(unique(fs_fj_cur$Corrected_ChName))`</span> of them contain the key work '风湿' or '风' & '湿';**
+
+- **Among the prescriptions could cure FengShi, a word cloud of all their 'Cures'(or say symptoms, occurred >1 times) is shown below:**
+
+<center>
+```{r fs_fj_cur_wdcld}
+fs_fj_cur_only <- select(fs_fj_cur,Symptom)
+curs <- data.frame(Symptom=na.omit(unlist(fs_fj_cur_only)))
+curs$Symptom <- factor(curs$Symptom,levels=as.character(names(sort(table(curs$Symptom),decreasing=T))))
+cur_freq <- as.data.frame(table(curs$Symptom))
+wordcloud(words=cur_freq$Var1,freq=cur_freq$Freq,min.freq=2,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
+
+- **And by exploring the prescriptions' components, a word cloud of the herbs' components(occurred >1 times) is shown below:**
+
+```{r fs_fj_cmp}
+
+# ----------- FangJi Cure FengShi Components ------------ 
+
+fs_fj_cmp <- readIn.func(fileName = "fs_fj_cmps")
+
+```
+
+<center>
+```{r fs_fj_cmp_wdcld}
+fs_fj_cmp_only <- select(fs_fj_cmp,Component)
+cmps <- data.frame(Component=na.omit(unlist(fs_fj_cmp_only)))
+cmps$Component <- factor(cmps$Component,levels=as.character(names(sort(table(cmps$Component),decreasing=T))))
+cmp_freq <- as.data.frame(table(cmps$Component))
+wordcloud(words=cmp_freq$Var1,freq=cmp_freq$Freq,min.freq=2,
+          max.words=200, random.order=FALSE, rot.per=0.35,
+          colors=brewer.pal(8,'Dark2'))
+```
+</center>
+
+- **From above word cloud, and based on findings from other exploration, the herb '甘草' was usually used as a mediator to harmony different herbs, so exclude '甘草', we see '防风','当归','羌活','白术','苍术','川芎','独活','地黄' are highly involved in the prescriptions treating FengShi**

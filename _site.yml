@@ -16,8 +16,8 @@ navbar:
       menu:
       - text: "Pandemic"
         href: pandemic.html
-      - text: "Rheuma"
-        href: rheuma
+      - text: "Arthritis"
+        href: arthritis.html
 
 output:
   html_document:

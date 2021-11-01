@@ -13,8 +13,8 @@
 
 <title>Prescriptions’ Functions &amp; Cures</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11.3/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -245,7 +245,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="theos.html">Herbal Medicine Theories</a>
+  <a href="theos.html">Theories</a>
 </li>
 <li>
   <a href="herbs.html">Herbs</a>
@@ -253,8 +253,20 @@ $(document).ready(function () {
 <li>
   <a href="prescri.html">Prescriptions</a>
 </li>
-<li>
-  <a href="explore.html">Explore</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Explore
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="pandemic.html">Pandemic</a>
+    </li>
+    <li>
+      <a href="arthritis.html">Arthritis</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -288,12 +300,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin       Reference        
   &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;            
-1 阿艾丸           AAiWan       《医统》卷八十四 
-2 阿艾五苓散       AAiWuLingSan 《嵩崖尊生》卷八 
-3 阿菜汤           ACaiTang     《饮膳正要》卷一 
-4 阿芙蓉酒         AFuRongJiao  《饲鹤亭集方》   
-5 艾柏饮           AiBaiYin     《验方新编》 卷一
-6 艾肠泥           AiChangYin   《中国接骨图说》 </code></pre>
+1 &lt;U+963F&gt;&lt;U+827E&gt;&lt;U+4E38&gt;           AAiWan       «&lt;U+533B&gt;&lt;U+7EDF&gt;»&lt;U+5377&gt;&lt;U+516B&gt;&lt;U+5341&gt;&lt;U+56DB&gt; 
+2 &lt;U+963F&gt;&lt;U+827E&gt;&lt;U+4E94&gt;&lt;U+82D3&gt;&lt;U+6563&gt;       AAiWuLingSan «&lt;U+5D69&gt;&lt;U+5D16&gt;&lt;U+5C0A&gt;&lt;U+751F&gt;»&lt;U+5377&gt;&lt;U+516B&gt; 
+3 &lt;U+963F&gt;&lt;U+83DC&gt;&lt;U+6C64&gt;           ACaiTang     «&lt;U+996E&gt;&lt;U+81B3&gt;&lt;U+6B63&gt;&lt;U+8981&gt;»&lt;U+5377&gt;&lt;U+4E00&gt; 
+4 &lt;U+963F&gt;&lt;U+8299&gt;&lt;U+84C9&gt;&lt;U+9152&gt;         AFuRongJiao  «&lt;U+9972&gt;&lt;U+9E64&gt;&lt;U+4EAD&gt;&lt;U+96C6&gt;&lt;U+65B9&gt;»   
+5 &lt;U+827E&gt;&lt;U+67CF&gt;&lt;U+996E&gt;           AiBaiYin     «&lt;U+9A8C&gt;&lt;U+65B9&gt;&lt;U+65B0&gt;&lt;U+7F16&gt;» &lt;U+5377&gt;&lt;U+4E00&gt;
+6 &lt;U+827E&gt;&lt;U+80A0&gt;&lt;U+6CE5&gt;           AiChangYin   «&lt;U+4E2D&gt;&lt;U+56FD&gt;&lt;U+63A5&gt;&lt;U+9AA8&gt;&lt;U+56FE&gt;&lt;U+8BF4&gt;» </code></pre>
 <ul>
 <li><strong>The Chinese Prescription Names are pending to translated into English.</strong></li>
 </ul>
@@ -304,12 +316,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 7
   Corrected_ChName PinYin       Compo1      Compo2     Compo3   Compo4   Compo5 
   &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  
-1 阿艾丸           AAiWan       &quot;白姜(盐\\~ 香附子(童~ 玄胡索(~ 真阿胶(~ 艾叶(~ 
-2 阿艾五苓散       AAiWuLingSan &quot;五苓散&quot;    阿胶1钱    川芎1钱  炙草1钱  当归3钱
-3 阿菜汤           ACaiTang     &quot;羊肉1脚子&quot; 草果5个    姜(良)2~ &lt;NA&gt;     &lt;NA&gt;   
-4 阿芙蓉酒         AFuRongJiao  &quot;滴花烧酒1~ 潮脑7钱    阿片烟膏 &lt;NA&gt;     &lt;NA&gt;   
-5 艾柏饮           AiBaiYin     &quot;艾叶1.5钱&quot; 柏子仁1.5~ 山萸肉1~ 丹皮1.5~ 大生地~
-6 艾肠泥           AiChangYin   &quot;藏瓜姜糟6~ 地黄(熟)6~ 生姜12钱 艾15钱   &lt;NA&gt;   </code></pre>
+1 &lt;U+963F&gt;&lt;U+827E&gt;&lt;U+4E38&gt;           AAiWan       &quot;&lt;U+767D&gt;&lt;U+59DC&gt;(&lt;U+76D0&gt;\\~ &lt;U+9999&gt;&lt;U+9644&gt;&lt;U+5B50&gt;(&lt;U+7AE5&gt;~ &lt;U+7384&gt;&lt;U+80E1&gt;&lt;U+7D22&gt;(~ &lt;U+771F&gt;&lt;U+963F&gt;&lt;U+80F6&gt;(~ &lt;U+827E&gt;&lt;U+53F6&gt;(~ 
+2 &lt;U+963F&gt;&lt;U+827E&gt;&lt;U+4E94&gt;&lt;U+82D3&gt;&lt;U+6563&gt;       AAiWuLingSan &quot;&lt;U+4E94&gt;&lt;U+82D3&gt;&lt;U+6563&gt;&quot;    &lt;U+963F&gt;&lt;U+80F6&gt;1&lt;U+94B1&gt;    &lt;U+5DDD&gt;&lt;U+828E&gt;1&lt;U+94B1&gt;  &lt;U+7518&gt;&lt;U+8349&gt;(&lt;U+7099&gt;~ &lt;U+5F53&gt;&lt;U+5F52&gt;3&lt;U+94B1&gt;
+3 &lt;U+963F&gt;&lt;U+83DC&gt;&lt;U+6C64&gt;           ACaiTang     &quot;&lt;U+7F8A&gt;&lt;U+8089&gt;1&lt;U+811A&gt;&lt;U+5B50&gt;&quot; &lt;U+8349&gt;&lt;U+679C&gt;5&lt;U+4E2A&gt;    &lt;U+59DC&gt;(&lt;U+826F&gt;)2~ &lt;NA&gt;     &lt;NA&gt;   
+4 &lt;U+963F&gt;&lt;U+8299&gt;&lt;U+84C9&gt;&lt;U+9152&gt;         AFuRongJiao  &quot;&lt;U+6EF4&gt;&lt;U+82B1&gt;&lt;U+70E7&gt;&lt;U+9152&gt;1~ &lt;U+6F6E&gt;&lt;U+8111&gt;7&lt;U+94B1&gt;    &lt;U+963F&gt;&lt;U+7247&gt;&lt;U+70DF&gt;&lt;U+818F&gt; &lt;NA&gt;     &lt;NA&gt;   
+5 &lt;U+827E&gt;&lt;U+67CF&gt;&lt;U+996E&gt;           AiBaiYin     &quot;&lt;U+827E&gt;&lt;U+53F6&gt;1.5&lt;U+94B1&gt;&quot; &lt;U+67CF&gt;&lt;U+5B50&gt;&lt;U+4EC1&gt;1.5~ &lt;U+5C71&gt;&lt;U+8438&gt;&lt;U+8089&gt;1~ &lt;U+4E39&gt;&lt;U+76AE&gt;1.5~ &lt;U+5927&gt;&lt;U+5730&gt;&lt;U+9EC4&gt;~
+6 &lt;U+827E&gt;&lt;U+80A0&gt;&lt;U+6CE5&gt;           AiChangYin   &quot;&lt;U+85CF&gt;&lt;U+74DC&gt;&lt;U+59DC&gt;&lt;U+7CDF&gt;6~ &lt;U+5730&gt;&lt;U+9EC4&gt;(&lt;U+719F&gt;)6~ &lt;U+59DC&gt;(&lt;U+751F&gt;)1~ &lt;U+827E&gt;15&lt;U+94B1&gt;   &lt;NA&gt;   </code></pre>
 <ul>
 <li><strong>Components context &amp; doses will be further cleaned.</strong></li>
 </ul>
@@ -326,12 +338,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 7
   Corrected_ChName PinYin       Cure1    Cure2          Cure3        Cure4 Cure5
   &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
-1 阿艾丸           AAiWan       血崩     老妇尤效       &lt;NA&gt;         &lt;NA&gt;  &lt;NA&gt; 
-2 阿艾五苓散       AAiWuLingSan 尿血     其人素好色     属虚者       &lt;NA&gt;  &lt;NA&gt; 
-3 阿菜汤           ACaiTang     补中益气 &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;  &lt;NA&gt; 
-4 阿芙蓉酒         AFuRongJiao  跌扑内损 风湿走注       支节酸疼     闪腰~ &lt;NA&gt; 
-5 艾柏饮           AiBaiYin     鼻血不止 无论虚实至重者 &lt;NA&gt;         &lt;NA&gt;  &lt;NA&gt; 
-6 艾肠泥           AiChangYin   打扑筋挛 骨闪挫         及久年打扑痛 &lt;NA&gt;  &lt;NA&gt; </code></pre>
+1 &lt;U+963F&gt;&lt;U+827E&gt;&lt;U+4E38&gt;           AAiWan       &lt;U+8840&gt;&lt;U+5D29&gt;     &lt;U+8001&gt;&lt;U+5987&gt;&lt;U+5C24&gt;&lt;U+6548&gt;       &lt;NA&gt;         &lt;NA&gt;  &lt;NA&gt; 
+2 &lt;U+963F&gt;&lt;U+827E&gt;&lt;U+4E94&gt;&lt;U+82D3&gt;&lt;U+6563&gt;       AAiWuLingSan &lt;U+5C3F&gt;&lt;U+8840&gt;     &lt;U+5176&gt;&lt;U+4EBA&gt;&lt;U+7D20&gt;&lt;U+597D&gt;&lt;U+8272&gt;     &lt;U+5C5E&gt;&lt;U+865A&gt;&lt;U+8005&gt;       &lt;NA&gt;  &lt;NA&gt; 
+3 &lt;U+963F&gt;&lt;U+83DC&gt;&lt;U+6C64&gt;           ACaiTang     &lt;U+8865&gt;&lt;U+4E2D&gt;&lt;U+76CA&gt;&lt;U+6C14&gt; &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;  &lt;NA&gt; 
+4 &lt;U+963F&gt;&lt;U+8299&gt;&lt;U+84C9&gt;&lt;U+9152&gt;         AFuRongJiao  &lt;U+8DCC&gt;&lt;U+6251&gt;&lt;U+5185&gt;&lt;U+635F&gt; &lt;U+98CE&gt;&lt;U+6E7F&gt;&lt;U+8D70&gt;&lt;U+6CE8&gt;       &lt;U+652F&gt;&lt;U+8282&gt;&lt;U+9178&gt;&lt;U+75BC&gt;     &lt;U+95EA&gt;&lt;U+8170&gt;~ &lt;NA&gt; 
+5 &lt;U+827E&gt;&lt;U+67CF&gt;&lt;U+996E&gt;           AiBaiYin     &lt;U+9F3B&gt;&lt;U+8840&gt;&lt;U+4E0D&gt;&lt;U+6B62&gt; &lt;U+65E0&gt;&lt;U+8BBA&gt;&lt;U+865A&gt;&lt;U+5B9E&gt;&lt;U+81F3&gt;&lt;U+91CD&gt;&lt;U+8005&gt; &lt;NA&gt;         &lt;NA&gt;  &lt;NA&gt; 
+6 &lt;U+827E&gt;&lt;U+80A0&gt;&lt;U+6CE5&gt;           AiChangYin   &lt;U+6253&gt;&lt;U+6251&gt;&lt;U+7B4B&gt;&lt;U+631B&gt; &lt;U+9AA8&gt;&lt;U+95EA&gt;&lt;U+632B&gt;         &lt;U+53CA&gt;&lt;U+4E45&gt;&lt;U+5E74&gt;&lt;U+6253&gt;&lt;U+6251&gt;&lt;U+75DB&gt; &lt;NA&gt;  &lt;NA&gt; </code></pre>
 <ul>
 <li><strong>Prescription Function &amp; treatments will be further cleaned.</strong></li>
 </ul>

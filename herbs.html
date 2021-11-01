@@ -13,8 +13,8 @@
 
 <title>Herbs’ Characters &amp; Functions</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11.3/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -254,8 +254,20 @@ $(document).ready(function () {
 <li>
   <a href="prescri.html">Prescriptions</a>
 </li>
-<li>
-  <a href="explore.html">Explore</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Explore
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="pandemic.html">Pandemic</a>
+    </li>
+    <li>
+      <a href="arthritis.html">Arthritis</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -299,12 +311,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 4
   Corrected_ChName PinYin            EngName1                   LatinName       
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;                      &lt;chr&gt;           
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang root of Altai Daphne       Lophanthus kryl~
-2 阿尔泰瑞香       AErTaiRuiXiang    #VALUE!                    Daphne altaica ~
-3 阿尔泰紫菀       AErTaiZiWan       Herb of Altai Heteropappus ?               
-4 矮醋栗           AiCuLi            swamp Currant              Ribes humile Ja~
-5 艾虎             AiHu              Weasel                     Mustela eversma~
-6 艾虎脑           AiHuNao           Weasel Brain               Mustela eversma~</code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang root of Altai Daphne       Lophanthus kryl~
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    #VALUE!                    Daphne altaica ~
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       Herb of Altai Heteropappus ?               
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            swamp Currant              Ribes humile Ja~
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              Weasel                     Mustela eversma~
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           Weasel Brain               Mustela eversma~</code></pre>
 <ul>
 <li>The English / Latin Names are still need to do more imputation &amp; verification.</li>
 </ul>
@@ -316,12 +328,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Property1
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;    
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang 微温     
-2 阿尔泰瑞香       AErTaiRuiXiang    温       
-3 阿尔泰紫菀       AErTaiZiWan       凉       
-4 矮醋栗           AiCuLi            平       
-5 艾虎             AiHu              温       
-6 艾虎脑           AiHuNao           微寒     </code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang &lt;U+5FAE&gt;&lt;U+6E29&gt;     
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    &lt;U+6E29&gt;       
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       &lt;U+51C9&gt;       
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            &lt;U+5E73&gt;       
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              &lt;U+6E29&gt;       
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           &lt;U+5FAE&gt;&lt;U+5BD2&gt;     </code></pre>
 <p><br></p>
 </div>
 <div id="frequencties-of-properties-since-there-might-be-1-herb-has-1-properties-so-the-overall-below-is-greater-than-7785" class="section level4">
@@ -403,12 +415,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Taste1
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt; 
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang 辛    
-2 阿尔泰瑞香       AErTaiRuiXiang    辛    
-3 阿尔泰紫菀       AErTaiZiWan       微苦  
-4 矮醋栗           AiCuLi            苦    
-5 艾虎             AiHu              甘    
-6 艾虎脑           AiHuNao           甘    </code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang &lt;U+8F9B&gt;    
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    &lt;U+8F9B&gt;    
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       &lt;U+5FAE&gt;&lt;U+82E6&gt;  
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            &lt;U+82E6&gt;    
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              &lt;U+7518&gt;    
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           &lt;U+7518&gt;    </code></pre>
 <p><br></p>
 </div>
 <div id="frequencies-of-tastes-since-there-might-be-1-herb-has-1-tastes-so-the-overall-below-is-greater-than-7785" class="section level4">
@@ -506,12 +518,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Attribute1
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;     
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang &lt;NA&gt;      
-2 阿尔泰瑞香       AErTaiRuiXiang    手太阴肺经
-3 阿尔泰紫菀       AErTaiZiWan       &lt;NA&gt;      
-4 矮醋栗           AiCuLi            手太阴肺经
-5 艾虎             AiHu              手少阴心经
-6 艾虎脑           AiHuNao           手少阴心经</code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang &lt;NA&gt;      
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    &lt;U+624B&gt;&lt;U+592A&gt;&lt;U+9634&gt;&lt;U+80BA&gt;&lt;U+7ECF&gt;
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       &lt;NA&gt;      
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            &lt;U+624B&gt;&lt;U+592A&gt;&lt;U+9634&gt;&lt;U+80BA&gt;&lt;U+7ECF&gt;
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              &lt;U+624B&gt;&lt;U+5C11&gt;&lt;U+9634&gt;&lt;U+5FC3&gt;&lt;U+7ECF&gt;
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           &lt;U+624B&gt;&lt;U+5C11&gt;&lt;U+9634&gt;&lt;U+5FC3&gt;&lt;U+7ECF&gt;</code></pre>
 <p><br></p>
 </div>
 <div id="frequencies-of-attributes-since-there-might-be-1-herb-has-1-attributes-so-the-overall-below-is-greater-than-7785" class="section level4">
@@ -595,14 +607,6 @@ $(document).ready(function () {
 <td>2 (0.0%)</td>
 </tr>
 <tr>
-<td class='rowlabel'>脑</td>
-<td>1 (0.0%)</td>
-</tr>
-<tr>
-<td class='rowlabel'>女子胞</td>
-<td>1 (0.0%)</td>
-</tr>
-<tr>
 <td class='rowlabel'>任督</td>
 <td>1 (0.0%)</td>
 </tr>
@@ -612,6 +616,14 @@ $(document).ready(function () {
 </tr>
 <tr>
 <td class='rowlabel'>太阴</td>
+<td>1 (0.0%)</td>
+</tr>
+<tr>
+<td class='rowlabel'>女子胞</td>
+<td>1 (0.0%)</td>
+</tr>
+<tr>
+<td class='rowlabel'>脑</td>
 <td>1 (0.0%)</td>
 </tr>
 <tr>
@@ -629,12 +641,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Toxicity
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;   
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang &lt;NA&gt;    
-2 阿尔泰瑞香       AErTaiRuiXiang    有      
-3 阿尔泰紫菀       AErTaiZiWan       &lt;NA&gt;    
-4 矮醋栗           AiCuLi            &lt;NA&gt;    
-5 艾虎             AiHu              &lt;NA&gt;    
-6 艾虎脑           AiHuNao           &lt;NA&gt;    </code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang &lt;NA&gt;    
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    &lt;U+6709&gt;      
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       &lt;NA&gt;    
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            &lt;NA&gt;    
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              &lt;NA&gt;    
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           &lt;NA&gt;    </code></pre>
 <p><br></p>
 </div>
 <div id="frequencies-of-toxicities-since-not-all-herbs-had-a-clear-toxicity-record-so-the-overall-below-is-much-less-than-7785" class="section level4">
@@ -688,12 +700,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Function1
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;    
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang 化湿消暑 
-2 阿尔泰瑞香       AErTaiRuiXiang    祛风散寒 
-3 阿尔泰紫菀       AErTaiZiWan       排脓止咳 
-4 矮醋栗           AiCuLi            祛风清热 
-5 艾虎             AiHu              祛风     
-6 艾虎脑           AiHuNao           解毒     </code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang &lt;U+5316&gt;&lt;U+6E7F&gt;&lt;U+6D88&gt;&lt;U+6691&gt; 
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    &lt;U+795B&gt;&lt;U+98CE&gt;&lt;U+6563&gt;&lt;U+5BD2&gt; 
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       &lt;U+6392&gt;&lt;U+8113&gt;&lt;U+6B62&gt;&lt;U+54B3&gt; 
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            &lt;U+795B&gt;&lt;U+98CE&gt;&lt;U+6E05&gt;&lt;U+70ED&gt; 
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              &lt;U+795B&gt;&lt;U+98CE&gt;     
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           &lt;U+89E3&gt;&lt;U+6BD2&gt;     </code></pre>
 <p><br></p>
 </div>
 <div id="a-wordcloud-chart-of-the-first-200-herb-functions-is-shown-below" class="section level4">
@@ -708,12 +720,12 @@ $(document).ready(function () {
 <pre><code># A tibble: 6 x 3
   Corrected_ChName PinYin            Cure1       
   &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;       
-1 阿尔泰扭藿香     AErTaiNiuHuoXiang 夏月感寒饮冷
-2 阿尔泰瑞香       AErTaiRuiXiang    咳嗽痰多    
-3 阿尔泰紫菀       AErTaiZiWan       传染性热病  
-4 矮醋栗           AiCuLi            咳嗽        
-5 艾虎             AiHu              半身不遂    
-6 艾虎脑           AiHuNao           药物中毒    </code></pre>
+1 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+626D&gt;&lt;U+85FF&gt;&lt;U+9999&gt;     AErTaiNiuHuoXiang &lt;U+590F&gt;&lt;U+6708&gt;&lt;U+611F&gt;&lt;U+5BD2&gt;&lt;U+996E&gt;&lt;U+51B7&gt;
+2 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+745E&gt;&lt;U+9999&gt;       AErTaiRuiXiang    &lt;U+54B3&gt;&lt;U+55FD&gt;&lt;U+75F0&gt;&lt;U+591A&gt;    
+3 &lt;U+963F&gt;&lt;U+5C14&gt;&lt;U+6CF0&gt;&lt;U+7D2B&gt;&lt;U+83C0&gt;       AErTaiZiWan       &lt;U+4F20&gt;&lt;U+67D3&gt;&lt;U+6027&gt;&lt;U+70ED&gt;&lt;U+75C5&gt;  
+4 &lt;U+77EE&gt;&lt;U+918B&gt;&lt;U+6817&gt;           AiCuLi            &lt;U+54B3&gt;&lt;U+55FD&gt;        
+5 &lt;U+827E&gt;&lt;U+864E&gt;             AiHu              &lt;U+534A&gt;&lt;U+8EAB&gt;&lt;U+4E0D&gt;&lt;U+9042&gt;    
+6 &lt;U+827E&gt;&lt;U+864E&gt;&lt;U+8111&gt;           AiHuNao           &lt;U+836F&gt;&lt;U+7269&gt;&lt;U+4E2D&gt;&lt;U+6BD2&gt;    </code></pre>
 <p><br></p>
 </div>
 <div id="a-wordcloud-chart-of-the-first-200-herb-treatments-is-shown-below" class="section level4">

@@ -79,7 +79,7 @@ head(fj_nam_)
 
 #rw_fj_cmp <- read_sheet("https://docs.google.com/spreadsheets/d/1f2dWSApp9JjCfK82lbZ1Kf-7ZAlV8f-ntP_6Dio_DPw/edit?usp=sharing",
 #                        sheet = "Sheet1")
-rw_fj_cmp <- readIn.func(fileName = "FangJiComponents_v210822")
+rw_fj_cmp <- readIn.func(fileName = "FangJiComponents_v210928")
 fj_cmp <- select(rw_fj_cmp,Corrected_ChName,PinYin,Compo1:Compo86)
 ```
 
