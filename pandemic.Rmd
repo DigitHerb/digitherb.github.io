@@ -122,6 +122,11 @@ wordcloud(words=wen_cmp_freq$Var1,freq=wen_cmp_freq$Freq,min.freq=1,
     (see the wordcloud chart of the herb component frequencies among all prescriptions on [Prescription Page](https://digitherb.github.io/prescri.html) <br>
     **'Supporting' herb means it help 'balance'/'buffering' the different herbs' functions in the prescription, to help them work together.** <br>
     **On the other hand, the Licorice was considered having ingredients like ['glycyrrhizin' may affect the cell membrane stability](https://pubmed.ncbi.nlm.nih.gov/24870200/)--something sounds like why herbal medicine used it as a 'supporting' herb to 'balance/stabilize the prescription'.**
+    *The chemical constituents of Licorice are summarized below:*
+
+| **Herb** | **English Name** | **Main Chemical Constituents** | **Reference** |
+| :--: | :---: | :---- | :--- |
+| **甘草** | Licorice | 甘草甜素(glycyrrhizin), 甘草酸(glycyrrhinic acid), 甘草次酸(glycyrrhetic acid，glycyrrhetinic acid), 甘草黄甙(甘草甙,liquiritin), 甘草素(liquiritigenin), 甘草苦甙(glycyamarin), 异甘草黄甙(iso-liquiritin), 二羟基甘草次酸(dihydroxyglycyrrhetic acid, 即grabric acid), 甘草西定(licoricidin), 甘草醇(glycyrol), 5-0-甲基甘草醇(5-0-methyl glycerol), 异甘草醇(iso-glycyrol) | [甘草Wiki](https://zh.wikipedia.org/wiki/%E7%94%98%E8%8D%89) |
 
 ---
 
